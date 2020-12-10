@@ -1,3 +1,5 @@
+@use "../styles/base" as b;
+
 .header {
   display: flex;
   justify-content: space-around;
@@ -10,6 +12,8 @@
 
   .heading {
     font-size: 1.75rem;
+    color: rgb(250, 250, 250);
+    text-shadow: rgb(223, 187, 42) 1px 0 10px;
   }
 }
 
@@ -25,6 +29,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 1em;
+    color: rgb(250, 250, 250);
 
     & > li {
       list-style-type: none;
@@ -34,15 +39,14 @@
   a {
     text-decoration: none;
     &:visited {
-      color: #19191a;
+      color: rgb(250, 250, 250);
     }
-    &:hover,
-    &:focus {
-      color: rgb(235, 235, 235);
+    &:hover {
+      color: b.$border-highlight;
     }
   }
   .selected {
-    border-bottom: 2px solid #93f4ab;
+    border-bottom: 2px solid b.$border-highlight;
   }
 }
 

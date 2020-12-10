@@ -1,8 +1,15 @@
+import { useEffect, useRef } from "react";
 import { useQuizContext } from "../context/QuizContext";
 import styles from "./SetupForm.module.scss";
 
 const SetupForm = () => {
   const { quiz, handleSubmit, handleChange } = useQuizContext();
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <section className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -19,6 +26,7 @@ const SetupForm = () => {
             className={styles.formControl}
             onChange={handleChange}
             value={quiz.amount}
+            ref={inputRef}
           />
         </div>
         <div className="selectionTwo">
@@ -53,6 +61,7 @@ const SetupForm = () => {
             <option value="hard">Hard</option>
           </select>
         </div>
+        {/* LINK */}
         <button type="submit" className={styles.btn}>
           Start Quiz
         </button>

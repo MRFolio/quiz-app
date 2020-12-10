@@ -1,14 +1,17 @@
 .btn {
   padding: 0.5em 1em;
-  background: white;
   border-radius: 0.25em;
-  border: 2px solid rgb(165, 207, 50);
+  border: 2px solid #2a9d8f;
   font-size: 1.25rem;
   font-weight: bold;
-  transition: transform 0.5s ease-out;
+  color: rgb(15, 15, 15);
+  background: rgba(230, 233, 230, 0.65);
+  transition: background 0.4s ease-out, border-color 0.4s ease-out;
+  cursor: pointer;
 
   &:hover {
-    transform: scale(1.05);
+    background: #f4f8f8;
+    border-color: rgb(2, 184, 26);
   }
   &:focus {
     outline: 1px solid lightblue;
