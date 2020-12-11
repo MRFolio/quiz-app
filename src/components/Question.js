@@ -3,9 +3,10 @@ import styles from "./Question.module.scss";
 
 const Question = () => {
   const { questions, index } = useQuizContext();
+  console.log(questions[0].question);
   return (
-    <article>
-      <h2 classname={styles.question}>{questions[index].question}</h2>
+    <article className={styles.container}>
+      <h2 className={styles.question}>{questions[0].question}</h2>
       <p className={styles.answers}></p>
       <p className={styles.answers}></p>
       <p className={styles.answers}></p>

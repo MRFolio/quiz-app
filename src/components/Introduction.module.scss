@@ -1,26 +1,53 @@
+@use "../styles/base" as b;
+
 .introduction {
-  width: 55%;
-  height: 55%;
+  width: 65%;
+  height: 65%;
   background: rgb(214, 235, 214);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2em;
+  gap: 1.5em;
   margin: 3em auto;
+  padding: 0.25em;
   border-radius: 0.35em;
   box-shadow: 5px 6px 8px #888888;
+  text-align: center;
+
+  @include b.for-mobile {
+    width: 90%;
+    height: 90%;
+  }
+  @include b.for-tablet {
+    width: 75%;
+    height: 75%;
+  }
 }
 
 .heading {
-  text-align: center;
   font-size: 1.5rem;
   letter-spacing: 0.05em;
+  color: rgb(241, 241, 241);
+
   .headingSpan {
-    /* background: rgba(#2a9d8f, 0.75);
+    background: rgba(#2a9d8f, 0.75);
     border-radius: 0.35em;
-    padding: 0.2em 0.3em; */
+    padding: 0.2em 0.3em;
+  }
+}
+
+.img {
+  width: 30%;
+  height: 35%;
+  border-radius: 50%;
+  border: 1px solid rgb(0, 155, 52);
+  background: rgba(246, 255, 254, 0.5);
+
+  @include b.for-mobile {
+    width: 35%;
+    height: 40%;
   }
 }
 

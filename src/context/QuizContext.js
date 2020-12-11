@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 const QuizContext = createContext(null);
 
-const API_ENDPOINT = "https://opentdb.com/api.php?";
+/* const API_ENDPOINT = "https://opentdb.com/api.php?"; */
 
 const initialQuizState = {
   amount: 10,
@@ -17,36 +17,23 @@ const QuizProvider = ({ children }) => {
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
 
-  const fetchQuestions = async (url) => {
-    setLoading(true);
-    try {
-      const response = await fetch(url);
-      const { results } = await response.json();
-      if (results) {
-        setQuestions(results);
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setQuiz({ ...quiz, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { amount, category, difficulty } = quiz;
-    const url = `${API_ENDPOINT}amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`;
-    fetchQuestions(url);
-  };
+  // handleSubmit
+  // async function -> end of the event loop
+  // await call api
+  // await json
+  // setQuestion
+  // redirect
 
   return (
-    <QuizContext.Provider value={{ quiz, handleSubmit, handleChange }}>
+    <QuizContext.Provider
+      value={{ quiz, questions, handleChange, setQuestions, setQuiz }}
+    >
       {children}
     </QuizContext.Provider>
   );

@@ -1,10 +1,48 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import { useQuizContext } from "../context/QuizContext";
 import styles from "./SetupForm.module.scss";
 
+const API_ENDPOINT = "https://opentdb.com/api.php?";
+
 const SetupForm = () => {
-  const { quiz, handleSubmit, handleChange } = useQuizContext();
+  const [loading, setLoading] = useState(false);
+  const { quiz, handleChange, setQuestions, questions } = useQuizContext();
   const inputRef = useRef(null);
+
+  const history = useHistory();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { amount, category, difficulty } = quiz;
+    const url = `${API_ENDPOINT}amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`;
+    setLoading(true);
+    try {
+      const response = await fetch(url);
+      const { results } = await response.json();
+      if (results) {
+        const questions = results.map(
+          ({
+            question,
+            correct_answer: correctAnswer,
+            incorrect_answers: incorrectAnswers,
+          }) => {
+            return {
+              question,
+              correctAnswer,
+              incorrectAnswers,
+            };
+          }
+        );
+        setQuestions(questions);
+      } else {
+        setQuestions([]);
+      }
+      history.push({ pathname: "/questions", state: { questions } });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     inputRef.current.focus();
@@ -62,11 +100,14 @@ const SetupForm = () => {
           </select>
         </div>
         {/* LINK */}
+        {/* <Link to="/questions"> */}
         <button type="submit" className={styles.btn}>
           Start Quiz
         </button>
+        {/* </Link> */}
       </form>
     </section>
   );
 };
+
 export default SetupForm;

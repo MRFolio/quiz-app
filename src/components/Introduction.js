@@ -1,9 +1,15 @@
+import questionsvg from "../images/question.svg";
 import styles from "./Introduction.module.scss";
 import StartButton from "./StartButton";
 
 const Introduction = () => {
   return (
     <section className={styles.introduction}>
+      <img
+        className={styles.img}
+        src={questionsvg}
+        alt="Green question marks circling around a person's head"
+      />
       <h1 className={styles.heading}>
         <span className={styles.headingSpan}>
           Generate Your Own Custom Quiz!
