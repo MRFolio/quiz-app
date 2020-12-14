@@ -1,5 +1,23 @@
 .question {
+  margin: 1em 0;
 }
 
-.answer {
+.answersBtn {
+  width: 40%;
+  font-size: 1.2rem;
+  /* font-weight: bold; */
+  padding: 0.5em 0.75em;
+  background: rgb(234, 240, 234);
+  border-radius: 0.2em;
+  border: 1px solid #3cd3b2;
+  cursor: pointer;
+}
+
+.answersSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
 }

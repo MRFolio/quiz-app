@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react';
 
 const QuizContext = createContext(null);
 
@@ -7,7 +7,7 @@ const QuizContext = createContext(null);
 const initialQuizState = {
   amount: 10,
   category: 21,
-  difficulty: "easy",
+  difficulty: 'easy',
 };
 
 const QuizProvider = ({ children }) => {
@@ -32,7 +32,7 @@ const QuizProvider = ({ children }) => {
 
   return (
     <QuizContext.Provider
-      value={{ quiz, questions, handleChange, setQuestions, setQuiz }}
+      value={{ quiz, questions, handleChange, setQuestions, setQuiz, index }}
     >
       {children}
     </QuizContext.Provider>

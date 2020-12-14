@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Spinner from "./components/Spinner";
 import { useQuizContext } from "./context/QuizContext";
-import { Home, Questions, Result, Setup } from "./views";
+import { Error, Home, Questions, Result, Setup } from "./views";
 
 const App = () => {
   const { loading } = useQuizContext();
