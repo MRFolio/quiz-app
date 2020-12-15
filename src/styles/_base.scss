@@ -1,10 +1,11 @@
 // variables
 $border-highlight: #93f4ab;
+$main-bg: #2a9d8f;
 
 // mixins
 
 @mixin for-mobile {
-  @media only screen and (max-width: 476px) {
+  @media only screen and (max-width: 626px) {
     @content;
   }
 }
@@ -22,7 +23,7 @@ $border-highlight: #93f4ab;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;

@@ -1,6 +1,6 @@
-import questionsvg from "../images/question.svg";
-import styles from "./Introduction.module.scss";
-import StartButton from "./StartButton";
+import questionsvg from '../images/question.svg';
+import styles from './Introduction.module.scss';
+import StartButton from './StartButton';
 
 const Introduction = () => {
   return (
@@ -17,7 +17,7 @@ const Introduction = () => {
       </h1>
       <div className={styles.welcome}>
         <p>
-          The questions are fetched from the{" "}
+          The questions are fetched from the{' '}
           <a
             href="https://opentdb.com/api_config.php"
             target="_blank"

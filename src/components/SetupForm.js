@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from "react";
-import { useHistory } from "react-router-dom";
-import { useQuizContext } from "../context/QuizContext";
-import styles from "./SetupForm.module.scss";
+import { useEffect, useRef, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useQuizContext } from '../context/QuizContext';
+import styles from './SetupForm.module.scss';
+import Spinner from './Spinner';
 
-const API_ENDPOINT = "https://opentdb.com/api.php?";
+const API_ENDPOINT = 'https://opentdb.com/api.php?';
 
 const SetupForm = () => {
   const [loading, setLoading] = useState(false);
@@ -38,7 +39,7 @@ const SetupForm = () => {
       } else {
         setQuestions([]);
       }
-      history.push({ pathname: "/questions", state: { questions } });
+      history.push({ pathname: '/questions', state: { questions } });
     } catch (error) {
       console.log(error);
     }
@@ -47,6 +48,10 @@ const SetupForm = () => {
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <section className={styles.container}>

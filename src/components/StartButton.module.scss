@@ -1,18 +1,22 @@
+@use "../styles/base" as b;
+
 .btn {
   padding: 0.5em 1em;
   border-radius: 0.25em;
-  border: 2px solid #2a9d8f;
+  border: 2px solid rgb(0, 155, 52);
+  background: rgba(230, 233, 230, 0.65);
+  color: rgb(15, 15, 15);
   font-size: 1.25rem;
   font-weight: bold;
-  color: rgb(15, 15, 15);
-  background: rgba(230, 233, 230, 0.65);
   transition: background 0.4s ease-out, border-color 0.4s ease-out;
   cursor: pointer;
 
   &:hover {
-    background: #f4f8f8;
-    border-color: rgb(2, 184, 26);
+    background: b.$main-bg;
+    border: 2px solid b.$main-bg;
+    color: rgb(236, 236, 236);
   }
+
   &:focus {
     outline: 1px solid lightblue;
   }

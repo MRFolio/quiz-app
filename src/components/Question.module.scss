@@ -1,16 +1,42 @@
+@use "../styles/base" as b;
+
+.container {
+  width: 80%;
+  margin: 3em auto;
+  padding: 1.5em 2.75em;
+  box-shadow: 5px 6px 8px #888888;
+  background: rgb(214, 235, 214);
+  border: 1px solid #a7a6a6;
+  border-radius: 0.5em;
+}
+
 .question {
   margin: 1em 0;
+  text-align: center;
 }
 
 .answersBtn {
-  width: 40%;
+  width: 60%;
   font-size: 1.2rem;
   /* font-weight: bold; */
   padding: 0.5em 0.75em;
   background: rgb(234, 240, 234);
   border-radius: 0.2em;
-  border: 1px solid #3cd3b2;
+  border: 1px solid b.$main-bg;
+  transition: background 0.15s ease-out;
   cursor: pointer;
+
+  &:hover {
+    background: rgb(166, 243, 166);
+  }
+
+  @include b.for-mobile {
+    width: 100%;
+  }
+
+  @include b.for-tablet {
+    width: 80%;
+  }
 }
 
 .answersSection {
