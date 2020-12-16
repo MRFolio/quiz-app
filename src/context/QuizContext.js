@@ -32,7 +32,17 @@ const QuizProvider = ({ children }) => {
 
   return (
     <QuizContext.Provider
-      value={{ quiz, questions, handleChange, setQuestions, setQuiz, index }}
+      value={{
+        quiz,
+        questions,
+        handleChange,
+        setQuestions,
+        setQuiz,
+        index,
+        setIndex,
+        setCorrect,
+        correct,
+      }}
     >
       {children}
     </QuizContext.Provider>

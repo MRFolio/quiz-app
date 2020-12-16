@@ -1,3 +1,6 @@
+import { nanoid } from 'nanoid';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useQuizContext } from '../context/QuizContext';
 import styles from './Question.module.scss';
 
@@ -9,25 +12,33 @@ const unescapeHtml = (safe) =>
     .replace(/&quot;/g, '"')
     .replace(/&#039;/g, "'");
 
-/* const addAnswerEnd = (answerItem, array) => {
-  array.push(answerItem);
-}; */
-
-/* const addAnswerInsideArray = (answerItem, randomNumber) => {
-  addAnswerEnd(answerItem, array);
-  array[randomNumber] = correctAnswer;
-}; */
-
 const Question = () => {
-  const { questions, index } = useQuizContext();
+  const [answeredQuestions, setAnsweredQuestions] = useState();
+  /* const [answeredQuestions, setAnsweredQuestions] = useState(); */
+  const { questions, index, setIndex, setCorrect, correct } = useQuizContext();
+
   const { question, correctAnswer, incorrectAnswers } = questions[index];
   const answers = [...incorrectAnswers];
 
-  const randomNumber = Math.floor(Math.random() * (answers.length + 1));
+  const history = useHistory();
 
-  /* randomNumber === 3
-    ? addAnswerEnd(correctAnswer)
-    : addAnswerInsideArray(incorrectAnswers[randomNumber], randomNumber); */
+  const nextQuestion = () => {
+    if (index > questions.length - 1) {
+      history.push({
+        pathname: '/result' /* , state: { answeredQuestions } */,
+      });
+    }
+    setIndex(index + 1);
+  };
+
+  const checkAnswer = (answer) => {
+    if (answer) {
+      setCorrect(correct + 1);
+    }
+    nextQuestion();
+  };
+
+  const randomNumber = Math.floor(Math.random() * (answers.length + 1));
 
   if (randomNumber === 3) {
     answers.push(correctAnswer);
@@ -36,9 +47,15 @@ const Question = () => {
     answers[randomNumber] = correctAnswer;
   }
 
-  // map through for nanoid
+  console.log(answers);
 
-  console.log(randomNumber);
+  // map through for nanoid
+  const answersWithId = answers.map((answer) => {
+    const answerId = nanoid();
+    return answer /* , (id: answerId)} */;
+  });
+
+  console.log(answersWithId);
 
   return (
     <article className={styles.container}>
@@ -48,7 +65,7 @@ const Question = () => {
           return (
             <button
               key={index}
-              /* onClick={() => console.log(answerID)} */
+              onClick={() => checkAnswer(correctAnswer === answer)}
               className={styles.answersBtn}
             >
               {unescapeHtml(answer)}
