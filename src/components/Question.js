@@ -1,21 +1,20 @@
 import { nanoid } from 'nanoid';
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useQuizContext } from '../context/QuizContext';
+import unescapeHtml from '../utils/textConversion';
+import InfoContainer from './InfoContainer';
 import styles from './Question.module.scss';
 
-const unescapeHtml = (safe) =>
-  safe
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'");
-
 const Question = () => {
-  const [answeredQuestions, setAnsweredQuestions] = useState();
-  /* const [answeredQuestions, setAnsweredQuestions] = useState(); */
-  const { questions, index, setIndex, setCorrect, correct } = useQuizContext();
+  const {
+    questions,
+    index,
+    setIndex,
+    setCorrect,
+    correct,
+    userAnswers,
+    setUserAnswers,
+  } = useQuizContext();
 
   const { question, correctAnswer, incorrectAnswers } = questions[index];
   const answers = [...incorrectAnswers];
@@ -23,18 +22,41 @@ const Question = () => {
   const history = useHistory();
 
   const nextQuestion = () => {
-    if (index > questions.length - 1) {
-      history.push({
-        pathname: '/result' /* , state: { answeredQuestions } */,
-      });
+    /* setIndex((oldIndex) => {
+      const index = oldIndex + 1;
+      if (index > questions.length - 1) {
+        history.push('/result');
+        return 0;
+      } else {
+        return index;
+      }
+    }); */
+    if (index >= questions.length - 1) {
+      setIndex(0);
+      history.push('/result');
+      /* history.push({
+        pathname: '/result',
+        state: { answeredQuestions },
+      }); */
     }
     setIndex(index + 1);
   };
 
-  const checkAnswer = (answer) => {
-    if (answer) {
+  const checkAnswer = (value) => {
+    const correctAnswer = value === questions[index].correctAnswer;
+
+    if (correctAnswer) {
       setCorrect(correct + 1);
     }
+
+    const answerObject = {
+      question: questions[index].question,
+      answer: value,
+      correct: correctAnswer,
+      correctAnswer: questions[index].correctAnswer,
+    };
+
+    setUserAnswers([...userAnswers, answerObject]);
     nextQuestion();
   };
 
@@ -47,32 +69,31 @@ const Question = () => {
     answers[randomNumber] = correctAnswer;
   }
 
-  console.log(answers);
-
   // map through for nanoid
   const answersWithId = answers.map((answer) => {
     const answerId = nanoid();
-    return answer /* , (id: answerId)} */;
+    const newObject = {
+      id: answerId,
+      answer,
+    };
+    return newObject;
   });
-
-  console.log(answersWithId);
 
   return (
     <article className={styles.container}>
       <h2 className={styles.question}>{unescapeHtml(question)}</h2>
       <div className={styles.answersSection}>
-        {answers.map((answer, index) => {
-          return (
-            <button
-              key={index}
-              onClick={() => checkAnswer(correctAnswer === answer)}
-              className={styles.answersBtn}
-            >
-              {unescapeHtml(answer)}
-            </button>
-          );
-        })}
+        {answersWithId.map((answer) => (
+          <button
+            key={answer.id}
+            onClick={() => checkAnswer(answer.answer)}
+            className={styles.answersBtn}
+          >
+            {unescapeHtml(answer.answer)}
+          </button>
+        ))}
       </div>
+      <InfoContainer />
     </article>
   );
 };

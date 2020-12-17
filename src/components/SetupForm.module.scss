@@ -48,4 +48,8 @@ div > label {
   &:hover {
     background: rgb(2, 163, 2);
   }
+
+  &:focus {
+    outline: 1px solid lightblue;
+  }
 }

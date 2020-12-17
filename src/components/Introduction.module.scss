@@ -2,7 +2,7 @@
 
 .introduction {
   width: 50%;
-  height: 65%;
+  height: 72%;
   background: rgb(214, 235, 214);
   display: flex;
   flex-direction: column;
@@ -18,12 +18,12 @@
 
   @include b.for-mobile {
     width: 90%;
-    height: 85%;
+    height: 80%;
   }
 
   @include b.for-tablet {
     width: 73%;
-    height: 78%;
+    height: 70%;
   }
 }
 
@@ -48,10 +48,15 @@
 
 .img {
   width: 30%;
-  height: 35%;
+  height: 30%;
   border-radius: 50%;
   border: 1px solid rgb(0, 155, 52);
   background: rgba(246, 255, 254, 0.5);
+
+  @include b.for-tablet {
+    width: 35%;
+    height: 35%;
+  }
 
   @include b.for-mobile {
     width: 50%;

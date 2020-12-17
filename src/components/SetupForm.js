@@ -8,16 +8,30 @@ const API_ENDPOINT = 'https://opentdb.com/api.php?';
 
 const SetupForm = () => {
   const [loading, setLoading] = useState(false);
-  const { quiz, handleChange, setQuestions, questions } = useQuizContext();
+  const {
+    quiz,
+    handleChange,
+    setQuestions,
+    questions,
+    setCorrect,
+    setIndex,
+  } = useQuizContext();
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setCorrect(0);
+    setIndex(0);
     const { amount, category, difficulty } = quiz;
     const url = `${API_ENDPOINT}amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`;
-    setLoading(true);
+
     try {
       const response = await fetch(url);
       const { results } = await response.json();
@@ -44,10 +58,6 @@ const SetupForm = () => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
 
   if (loading) {
     return <Spinner />;
@@ -104,12 +114,9 @@ const SetupForm = () => {
             <option value="hard">Hard</option>
           </select>
         </div>
-        {/* LINK */}
-        {/* <Link to="/questions"> */}
         <button type="submit" className={styles.btn}>
           Start Quiz
         </button>
-        {/* </Link> */}
       </form>
     </section>
   );

@@ -2,8 +2,6 @@ import { createContext, useContext, useState } from 'react';
 
 const QuizContext = createContext(null);
 
-/* const API_ENDPOINT = "https://opentdb.com/api.php?"; */
-
 const initialQuizState = {
   amount: 10,
   category: 21,
@@ -12,10 +10,11 @@ const initialQuizState = {
 
 const QuizProvider = ({ children }) => {
   const [quiz, setQuiz] = useState(initialQuizState);
-  const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
+  const [userAnswers, setUserAnswers] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -34,14 +33,18 @@ const QuizProvider = ({ children }) => {
     <QuizContext.Provider
       value={{
         quiz,
-        questions,
-        handleChange,
-        setQuestions,
         setQuiz,
+        questions,
+        setQuestions,
         index,
         setIndex,
-        setCorrect,
         correct,
+        setCorrect,
+        userAnswers,
+        setUserAnswers,
+        showModal,
+        setShowModal,
+        handleChange,
       }}
     >
       {children}

@@ -1,14 +1,4 @@
-@use "base";
-
-.main {
-  min-height: 90vh;
-  display: grid;
-  place-items: center;
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
-/* .modal {
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -31,4 +21,4 @@
     text-align: center;
     position: relative;
   }
-} */
+}
