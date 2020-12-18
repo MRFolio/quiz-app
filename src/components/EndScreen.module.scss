@@ -1,5 +1,29 @@
 @use "../styles/base" as b;
 
+@mixin btn($color) {
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  border: 2px solid $color;
+  background: rgba(230, 233, 230, 0.65);
+  color: rgb(15, 15, 15);
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: background 0.4s ease-out, border-color 0.4s ease-out;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background: b.$main-bg;
+    border-color: b.$main-bg;
+    color: rgb(236, 236, 236);
+  }
+
+  &:focus {
+    outline: 1px solid lightblue;
+  }
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -18,25 +42,9 @@
 }
 
 .btn {
-  padding: 0.5em 1em;
-  border-radius: 0.25em;
-  border: 2px solid rgb(0, 155, 52);
-  background: rgba(230, 233, 230, 0.65);
-  color: rgb(15, 15, 15);
-  font-size: 1.25rem;
-  font-weight: bold;
-  transition: background 0.4s ease-out, border-color 0.4s ease-out;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+  @include btn(rgb(0, 155, 52));
+}
 
-  &:hover {
-    background: b.$main-bg;
-    border: 2px solid b.$main-bg;
-    color: rgb(236, 236, 236);
-  }
-
-  &:focus {
-    outline: 1px solid lightblue;
-  }
+.btnInfo {
+  @include btn(rgb(233, 154, 9));
 }

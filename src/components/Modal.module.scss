@@ -1,3 +1,12 @@
+@use "../styles/base" as b;
+
+@mixin question {
+  border: 1px solid b.$main-bg;
+  border-radius: 0.3em;
+  padding: 0.15em;
+  margin: 0.75em 0;
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -9,16 +18,81 @@
   align-items: center;
   justify-content: center;
   opacity: 1;
-  transition: var(--transition);
   z-index: 100;
 
   .modal-content {
-    background: white;
-    width: 90vw;
-    max-width: 500px;
-    padding: 3rem;
+    background: rgb(230, 230, 230);
+    width: 96vw;
+    height: 80vh;
+    max-width: 626px;
+    padding: 1em;
     border-radius: 0.3em;
     text-align: center;
     position: relative;
+    overflow-y: scroll;
+
+    .heading {
+      margin: 0.2em 0;
+      padding: 0.15em;
+      background: rgba(b.$main-bg, 0.66);
+      border-radius: 0.2em;
+      color: rgb(17, 17, 17);
+    }
+
+    .question {
+      @include question;
+    }
+
+    .questionIncorrect {
+      @include question;
+      background: rgb(230, 162, 162);
+    }
+
+    .answers {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.15em 0.25em;
+      border: 1px solid b.$main-bg;
+      border-radius: 0.2em;
+      width: 66%;
+      margin: 0.3em auto;
+
+      .leftText {
+        padding: 0.15em 0.25em;
+        border: 1px solid b.$main-bg;
+        background: rgba(b.$main-bg, 0.5);
+        border-radius: 0.2em;
+      }
+
+      /* &:nth-of-type(1) {
+        border-bottom: 1px solid green;
+        border: 1px solid #d1d1d1;
+      } */
+    }
+
+    .btn {
+      position: absolute;
+      right: 0.4em;
+      top: 0.4em;
+      background: rgb(240, 240, 240);
+      border: 2px solid rgb(204, 124, 124);
+      border-radius: 0.5em;
+      padding: 0.2em;
+      color: rgb(192, 3, 3);
+      display: flex;
+      align-items: center;
+      transition: border-color 0.3s ease-out, color 0.3s ease-out;
+      cursor: pointer;
+
+      &:hover {
+        color: rgb(233, 2, 2);
+        border-color: rgb(228, 54, 54);
+      }
+    }
+
+    .icon {
+      font-size: 1.5rem;
+    }
   }
 }

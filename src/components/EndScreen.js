@@ -1,27 +1,22 @@
-import { useState } from 'react';
-import { FiChevronsDown, FiChevronsUp } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { useHistory } from 'react-router-dom';
 import { useQuizContext } from '../context/QuizContext';
 import styles from './EndScreen.module.scss';
+import Modal from './Modal';
 
 const EndScreen = () => {
-  const [showMore, setShowMore] = useState(false);
+  const { correct, questions, showModal, setShowModal } = useQuizContext();
 
-  const {
-    correct,
-    questions,
-    userAnswers,
-    showModal,
-    setShowModal,
-  } = useQuizContext();
+  const history = useHistory();
 
   const handleClick = () => {
-    setShowMore(!showMore);
+    history.push('/setup');
   };
 
   return (
     <section className={styles.container}>
       <h2 className={styles.heading}>Quiz finished!</h2>
+
       <p className={styles.resultText}>
         Your final score is <strong>{correct} </strong>out of{' '}
         <strong>{questions.length}</strong>.
@@ -31,31 +26,33 @@ const EndScreen = () => {
         <strong>{((correct / questions.length) * 100).toFixed(0)}%</strong> of
         questions correctly.
       </p>
-      <Link to="/setup" title="Start a new quiz">
-        <button className={styles.btn} aria-label="Go to setup page">
-          Setup a new quiz
-        </button>
-      </Link>
+      <button
+        onClick={() => setShowModal(true)}
+        className={styles.btnInfo}
+        title="Show all the questions and answers"
+        aria-label="Click to see questions and answers"
+      >
+        Show overview of all the questions and answers
+        <BsThreeDotsVertical className={styles.icon} />
+      </button>
       <button
         onClick={handleClick}
         className={styles.btn}
-        title="Show questions and answers"
-        aria-label="Expand to see questions and answers"
+        aria-label="Go to setup page"
       >
-        Show answered questions in detail
-        {showMore ? <FiChevronsUp /> : <FiChevronsDown />}
+        Set up a new quiz
       </button>
-      {/* {showModal && <Modal />}
-      <button onClick={() => setShowModal(true)}>Tere</button> */}
-      {showMore &&
+
+      {showModal && <Modal />}
+      {/* <button onClick={() => setShowModal(true)}>Tere</button> */}
+      {/* {showMore &&
         userAnswers.map((answer, index) => {
-          console.log(answer);
           return (
             <article key={index}>
               <h1>{unescapeHtml(answer.question)}</h1>
             </article>
           );
-        })}
+        })} */}
     </section>
   );
 };
