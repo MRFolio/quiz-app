@@ -37,6 +37,38 @@
   font-size: 1.6rem;
 }
 
+.result {
+  width: 50%;
+  min-height: 30vh;
+  border: 1px solid gray;
+  border-radius: 0.2em;
+  display: grid;
+  place-items: center;
+  position: relative;
+  border: 3px solid b.$border-highlight;
+  /* background: url('https://i.imgur.com/wiMkZfx.png') center cover;
+  z-index: 10; */
+  /* background: red; */
+  /* background: url('images/grey.png'); */ /* background-image: url(i); */
+  /* no-repeat fixed-center; */
+  .resultNumber {
+    padding: 0.65em;
+    border-radius: 50%;
+    z-index: 10;
+    background: rgb(161, 150, 150);
+    border: 3px solid b.$border-highlight;
+    font-size: 1.75rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    color: b.$border-highlight;
+  }
+  .image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .resultText {
   font-size: 1.25rem;
 }
