@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useQuizContext } from '../context/QuizContext';
 import styles from './Navbar.module.scss';
 
@@ -7,15 +7,15 @@ const Navbar = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerLeft}>
-        {/* <Link to="/">
-          <img
+        <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+          {/* <img
             className={styles.icon}
             src={icon}
             alt="icon with question marks around a person"
             title="Go to home page"
-          />
-        </Link> */}
-        <h1 className={styles.heading}>Quiz App</h1>
+          /> */}
+          <h1 className={styles.heading}>Quiz App</h1>
+        </Link>
       </div>
 
       <nav className={styles.nav}>

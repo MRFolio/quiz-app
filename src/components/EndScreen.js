@@ -1,7 +1,6 @@
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { useHistory } from 'react-router-dom';
 import { useQuizContext } from '../context/QuizContext';
-import grey from '../images/grey.png';
 import styles from './EndScreen.module.scss';
 import Modal from './Modal';
 
@@ -23,11 +22,11 @@ const EndScreen = () => {
         <strong>{questions.length}</strong>.
       </p>
       <article className={styles.result}>
-        <img
+        {/* <img
           src={grey}
           alt="background pattern greyscale"
           className={styles.image}
-        />
+        /> */}
         <p className={styles.resultNumber}>Your Score</p>
         <p className={styles.resultNumber}>Advanced</p>
         <p className={styles.resultNumber}>100%</p>

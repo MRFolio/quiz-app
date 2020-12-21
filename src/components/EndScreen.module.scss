@@ -1,9 +1,9 @@
 @use "../styles/base" as b;
 
 @mixin btn($color) {
-  padding: 0.5em 1em;
+  padding: 0.35em 0.7em;
   border-radius: 0.25em;
-  border: 2px solid $color;
+  border: 1px solid $color;
   background: rgba(230, 233, 230, 0.65);
   color: rgb(15, 15, 15);
   font-size: 1.25rem;
@@ -45,9 +45,10 @@
   display: grid;
   place-items: center;
   position: relative;
-  border: 3px solid b.$border-highlight;
-  /* background: url('https://i.imgur.com/wiMkZfx.png') center cover;
-  z-index: 10; */
+  border: 2px solid b.$border-highlight;
+  background: linear-gradient(rgba(42, 157, 143, 0.7), rgba(147, 244, 171, 0.2)),
+    url('../images/grey.png');
+  z-index: 10;
   /* background: red; */
   /* background: url('images/grey.png'); */ /* background-image: url(i); */
   /* no-repeat fixed-center; */
@@ -56,7 +57,7 @@
     border-radius: 50%;
     z-index: 10;
     background: rgb(161, 150, 150);
-    border: 3px solid b.$border-highlight;
+    border: 2px solid b.$border-highlight;
     font-size: 1.75rem;
     font-weight: bold;
     letter-spacing: 0.03em;
