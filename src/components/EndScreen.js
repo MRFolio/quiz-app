@@ -1,4 +1,5 @@
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import { MdReplay } from 'react-icons/md';
 import { useHistory } from 'react-router-dom';
 import { useQuizContext } from '../context/QuizContext';
 import styles from './EndScreen.module.scss';
@@ -13,28 +14,33 @@ const EndScreen = () => {
     history.push('/setup');
   };
 
+  const score = ((correct / questions.length) * 100).toFixed(0);
+
+  const rating = (score) => {
+    if (score < 40) {
+      return 'Beginner';
+    } else if (score > 60) {
+      return 'Competent';
+    } else if (score > 85) {
+      return 'Expert';
+    } else {
+      return 'Intermediate';
+    }
+  };
+
   return (
     <section className={styles.container}>
       <h2 className={styles.heading}>Quiz finished!</h2>
-
-      <p className={styles.resultText}>
-        Your final score is <strong>{correct} </strong>out of{' '}
-        <strong>{questions.length}</strong>.
-      </p>
       <article className={styles.result}>
-        {/* <img
-          src={grey}
-          alt="background pattern greyscale"
-          className={styles.image}
-        /> */}
-        <p className={styles.resultNumber}>Your Score</p>
-        <p className={styles.resultNumber}>Advanced</p>
-        <p className={styles.resultNumber}>100%</p>
+        <p className={styles.resultHeading}>Your Score</p>
+        <p className={styles.resultNumber}>
+          <strong>{score}%</strong>
+        </p>
+        <p className={styles.resultInfo}>{rating(score)}</p>
       </article>
       <p className={styles.resultText}>
-        You answered{' '}
-        <strong>{((correct / questions.length) * 100).toFixed(0)}%</strong> of
-        questions correctly.
+        You answered <strong>{correct} </strong>out of {}
+        <strong>{questions.length}</strong> questions correctly.
       </p>
       <button
         onClick={() => setShowModal(true)}
@@ -42,7 +48,7 @@ const EndScreen = () => {
         title="Show all the questions and answers"
         aria-label="Click to see questions and answers"
       >
-        Show overview of all the questions and answers
+        Show your questions and answers
         <BsThreeDotsVertical className={styles.icon} />
       </button>
       <button
@@ -51,18 +57,9 @@ const EndScreen = () => {
         aria-label="Go to setup page"
       >
         Set up a new quiz
+        <MdReplay className={styles.icon} />
       </button>
-
       {showModal && <Modal />}
-      {/* <button onClick={() => setShowModal(true)}>Tere</button> */}
-      {/* {showMore &&
-        userAnswers.map((answer, index) => {
-          return (
-            <article key={index}>
-              <h1>{unescapeHtml(answer.question)}</h1>
-            </article>
-          );
-        })} */}
     </section>
   );
 };

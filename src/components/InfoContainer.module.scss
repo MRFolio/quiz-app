@@ -1,9 +1,17 @@
+@use "../styles/base" as b;
+
 .infoContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 0.2em;
 
   .infoText {
-    color: rgb(75, 75, 75);
+    color: rgb(61, 61, 61);
+  }
+
+  @include b.for-mobile {
+    flex-direction: column;
+    gap: 0.5em;
   }
 }

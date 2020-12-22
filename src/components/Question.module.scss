@@ -8,12 +8,27 @@
   background: rgb(214, 235, 214);
   border: 1px solid #a7a6a6;
   border-radius: 0.5em;
+
+  @include b.for-mobile {
+    margin: 1.5em auto;
+    padding: 0.5em 1em;
+  }
 }
 
 .question {
-  margin: 1em 0;
+  margin: 0.3em 0 1em;
   text-align: center;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
+  padding: 0.4em;
+  border: 2px solid b.$main-bg;
+  background: rgba(b.$main-bg, 0.9);
+  color: rgb(241, 241, 241);
+  border-radius: 0.2em;
+
+  @include b.for-mobile {
+    border-width: 2px;
+    margin-top: 0.6em;
+  }
 }
 
 .answersSection {
@@ -34,9 +49,11 @@
     transition: background 0.15s ease-out;
     letter-spacing: 0.04em;
     cursor: pointer;
+    transition: all 0.4s ease-out;
 
     &:hover {
-      background: rgb(166, 243, 166);
+      background: b.$border-highlight;
+      transform: scale(1.03);
     }
 
     &:last-of-type {

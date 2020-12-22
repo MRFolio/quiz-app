@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
+import ErrorCont from '../components/ErrorCont';
 
-const Error = () => {
-  <section className="error">
-    <Link to="/">Back Home!</Link>
-    <h3>Sorry, no matching page!</h3>;
-  </section>;
-};
-
+const Error = () => (
+  <main className="main">
+    <ErrorCont />
+  </main>
+);
 export default Error;

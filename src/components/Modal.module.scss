@@ -5,6 +5,23 @@
   border-radius: 0.3em;
   padding: 0.15em;
   margin: 0.75em 0;
+  position: relative;
+
+  .number {
+    position: absolute;
+    top: 3.75em;
+    left: 2em;
+    background: rgb(240, 240, 240);
+    border: 2px solid rgb(204, 124, 124);
+    border-radius: 2em;
+    padding: 0.25em 0.75em;
+    font-size: 1rem;
+
+    @include b.for-mobile {
+      top: 4.2em;
+      left: 1.5em;
+    }
+  }
 }
 
 .modal {
@@ -19,6 +36,7 @@
   justify-content: center;
   opacity: 1;
   z-index: 100;
+  animation: fade 0.7s ease-out;
 
   .modal-content {
     background: rgb(230, 230, 230);
@@ -31,12 +49,16 @@
     position: relative;
     overflow-y: scroll;
 
+    .title {
+      font-size: 1.5rem;
+    }
+
     .heading {
-      margin: 0.2em 0;
+      margin: 0.2em 0.6em;
       padding: 0.15em;
-      background: rgba(b.$main-bg, 0.66);
+      background: rgba(b.$main-bg, 1);
       border-radius: 0.2em;
-      color: rgb(17, 17, 17);
+      color: rgb(241, 241, 241);
     }
 
     .question {
@@ -45,7 +67,7 @@
 
     .questionIncorrect {
       @include question;
-      background: rgb(230, 162, 162);
+      background: rgb(230, 172, 172);
     }
 
     .answers {
@@ -58,23 +80,19 @@
       width: 66%;
       margin: 0.3em auto;
 
-      .leftText {
+      .rightText {
         padding: 0.15em 0.25em;
         border: 1px solid b.$main-bg;
-        background: rgba(b.$main-bg, 0.5);
+        background: rgba(b.$main-bg, 1);
         border-radius: 0.2em;
+        color: rgb(240, 240, 240);
       }
-
-      /* &:nth-of-type(1) {
-        border-bottom: 1px solid green;
-        border: 1px solid #d1d1d1;
-      } */
     }
 
     .btn {
       position: absolute;
-      right: 0.4em;
-      top: 0.4em;
+      top: 0.6em;
+      right: 0.6em;
       background: rgb(240, 240, 240);
       border: 2px solid rgb(204, 124, 124);
       border-radius: 0.5em;
@@ -89,10 +107,24 @@
         color: rgb(233, 2, 2);
         border-color: rgb(228, 54, 54);
       }
+
+      @include b.for-mobile {
+        right: 0.65em;
+        top: 0.65em;
+      }
     }
 
     .icon {
       font-size: 1.5rem;
     }
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

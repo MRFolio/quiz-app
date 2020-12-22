@@ -1,6 +1,25 @@
 @use "../styles/base" as b;
 
-.btn {
+.container {
+  display: grid;
+  place-items: center;
+  gap: 1.5em;
+  padding: 3em;
+  text-transform: capitalize;
+  background: rgb(214, 235, 214);
+  margin: 3em auto;
+  padding: 2em 3em;
+  box-shadow: 5px 6px 8px #888888;
+  border: 2px solid #d48686;
+  border-radius: 0.5em;
+}
+
+.heading {
+  font-size: 1.8rem;
+}
+
+.link {
+  font-size: 1.5rem;
   padding: 0.5em 1em;
   border-radius: 0.25em;
   border: 2px solid rgb(0, 155, 52);

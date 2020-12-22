@@ -15,6 +15,7 @@ const SetupForm = () => {
     questions,
     setCorrect,
     setIndex,
+    setUserAnswers,
   } = useQuizContext();
   const inputRef = useRef(null);
 
@@ -29,12 +30,14 @@ const SetupForm = () => {
     setLoading(true);
     setCorrect(0);
     setIndex(0);
+    setUserAnswers([]);
     const { amount, category, difficulty } = quiz;
     const url = `${API_ENDPOINT}amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`;
 
     try {
       const response = await fetch(url);
       const { results } = await response.json();
+
       if (results) {
         const questions = results.map(
           ({
