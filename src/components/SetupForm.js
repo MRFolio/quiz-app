@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useQuizContext } from '../context/QuizContext';
@@ -62,12 +63,51 @@ const SetupForm = () => {
     }
   };
 
+  /* const pageVariants = {
+    initial: {
+      opacity: 0,
+      x: '-100vw',
+      scale: 0.8,
+    },
+    in: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+    },
+    out: {
+      opacity: 0,
+      x: '100vw',
+      scale: 0.8,
+    },
+  };
+
+  const pageTransition = {
+    transition: 'tween',
+    ease: 'anticipate',
+    duration: 1,
+  }; */
+
   if (loading) {
     return <Spinner />;
   }
 
   return (
-    <section className={styles.container}>
+    <motion.section
+      /* initial={{ opacity: 0, y: 60, scale: 0.3 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: { type: 'spring', stiffness: 300 },
+      }}
+      exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.6 } }} */
+      /* initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition} */
+      className={styles.container}
+    >
       <form onSubmit={handleSubmit} className={styles.form}>
         <h3 className={styles.heading}>Set up your Quiz!</h3>
         <div className={styles.form}>
@@ -121,7 +161,7 @@ const SetupForm = () => {
           Start Quiz
         </button>
       </form>
-    </section>
+    </motion.section>
   );
 };
 
