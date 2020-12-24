@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { MdReplay } from 'react-icons/md';
 import { useHistory } from 'react-router-dom';
@@ -6,9 +7,16 @@ import styles from './EndScreen.module.scss';
 import Modal from './Modal';
 
 const EndScreen = () => {
-  const { correct, questions, showModal, setShowModal } = useQuizContext();
+  const [showModal, setShowModal] = useState(false);
+  const { correct, questions, quiz } = useQuizContext();
 
   const history = useHistory();
+
+  const {
+    time: { end },
+  } = quiz;
+
+  const elapsedTime = (end / 1000).toFixed();
 
   const handleClick = () => {
     history.push('/setup');
@@ -42,13 +50,16 @@ const EndScreen = () => {
         You answered <strong>{correct} </strong>out of {}
         <strong>{questions.length}</strong> questions correctly.
       </p>
+      <p className={styles.resultText}>
+        Time spent: <strong>{elapsedTime} </strong>seconds.
+      </p>
       <button
         onClick={() => setShowModal(true)}
         className={styles.btnInfo}
         title="Show all the questions and answers"
-        aria-label="Click to see questions and answers"
+        aria-label="Go to questions and answers modal page"
       >
-        Show your questions and answers
+        Show the questions and answers
         <BsThreeDotsVertical className={styles.icon} />
       </button>
       <button
@@ -59,7 +70,7 @@ const EndScreen = () => {
         Set up a new quiz
         <MdReplay className={styles.icon} />
       </button>
-      {showModal && <Modal />}
+      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
     </section>
   );
 };

@@ -1,11 +1,12 @@
+import { motion } from 'framer-motion';
 import { useCallback, useEffect, useRef } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { useQuizContext } from '../context/QuizContext';
 import unescapeHtml from '../utils/textConversion';
 import styles from './Modal.module.scss';
 
-const Modal = () => {
-  const { showModal, setShowModal, userAnswers } = useQuizContext();
+const Modal = ({ showModal, setShowModal }) => {
+  const { userAnswers } = useQuizContext();
   const modalRef = useRef(null);
 
   const handleClick = useCallback(
@@ -26,11 +27,13 @@ const Modal = () => {
       <div ref={modalRef} className={styles['modal-content']}>
         <h3 className={styles.title}>Overview of your answers</h3>
         {userAnswers
-          .sort((a, b) => a.correct - b.correct)
+          /* .sort((a, b) => a.correct - b.correct) */
           .map((answer, index) => (
-            <article
+            <motion.article
               className={styles[`question${answer.correct ? '' : 'Incorrect'}`]}
               key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
             >
               <h1 className={styles.heading}>
                 {unescapeHtml(answer.question)}
@@ -48,7 +51,7 @@ const Modal = () => {
                 </p>
               </div>
               <p className={styles.number}>{index + 1}</p>
-            </article>
+            </motion.article>
           ))}
         <button
           className={styles.btn}

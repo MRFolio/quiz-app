@@ -2,6 +2,21 @@ import questionsvg from '../images/question.svg';
 import styles from './Introduction.module.scss';
 import StartButton from './StartButton';
 
+/* const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+    },
+  },
+};
+
+const listItem = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+}; */
+
 const Introduction = () => {
   return (
     <section className={styles.introduction}>

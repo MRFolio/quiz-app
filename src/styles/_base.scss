@@ -5,7 +5,7 @@ $main-bg: #2a9d8f;
 // mixins
 
 @mixin for-mobile {
-  @media only screen and (max-width: 626px) {
+  @media only screen and (max-width: 628px) {
     @content;
   }
 }

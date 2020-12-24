@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useQuizContext } from '../context/QuizContext';
+import { pageTransition, pageVariants } from '../utils';
 import styles from './SetupForm.module.scss';
 import Spinner from './Spinner';
 
@@ -17,6 +17,7 @@ const SetupForm = () => {
     setCorrect,
     setIndex,
     setUserAnswers,
+    setQuiz,
   } = useQuizContext();
   const inputRef = useRef(null);
 
@@ -28,6 +29,7 @@ const SetupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setQuiz({ ...quiz, time: { start: Date.now() } });
     setLoading(true);
     setCorrect(0);
     setIndex(0);
@@ -57,42 +59,23 @@ const SetupForm = () => {
       } else {
         setQuestions([]);
       }
-      history.push({ pathname: '/questions', state: { questions } });
+      history.push({ pathname: '/questions', state: { questions, quiz } });
     } catch (error) {
       console.log(error);
     }
   };
-
-  /* const pageVariants = {
-    initial: {
-      opacity: 0,
-      x: '-100vw',
-      scale: 0.8,
-    },
-    in: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-    },
-    out: {
-      opacity: 0,
-      x: '100vw',
-      scale: 0.8,
-    },
-  };
-
-  const pageTransition = {
-    transition: 'tween',
-    ease: 'anticipate',
-    duration: 1,
-  }; */
 
   if (loading) {
     return <Spinner />;
   }
 
   return (
-    <motion.section
+    <section
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
       /* initial={{ opacity: 0, y: 60, scale: 0.3 }}
       animate={{
         opacity: 1,
@@ -157,11 +140,25 @@ const SetupForm = () => {
             <option value="hard">Hard</option>
           </select>
         </div>
+        <div className="selectionThree">
+          <label htmlFor="timelimit">Select timelimit for each question:</label>
+          <select
+            name="timelimit"
+            id="timelimit"
+            className={styles.formControl}
+            onChange={handleChange}
+            value={Number(quiz.timelimit)}
+          >
+            <option value={10000}>10 sec</option>
+            <option value={20000}>20 seconds</option>
+            <option value={30000}>30 seconds</option>
+          </select>
+        </div>
         <button type="submit" className={styles.btn}>
           Start Quiz
         </button>
       </form>
-    </motion.section>
+    </section>
   );
 };
 

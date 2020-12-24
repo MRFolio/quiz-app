@@ -8,38 +8,25 @@ const Navbar = () => {
     <header className={styles.header}>
       <div className={styles.headerLeft}>
         <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>
-          {/* <img
-            className={styles.icon}
-            src={icon}
-            alt="icon with question marks around a person"
-            title="Go to home page"
-          /> */}
-          <h1 className={styles.heading}>Quiz App</h1>
+          <h1 className={styles.heading} title="Go to homepage">
+            Quiz App
+          </h1>
         </Link>
       </div>
-
       <nav className={styles.nav}>
         <ul className={styles.list}>
-          <li>
-            <NavLink
-              exact
-              to="/"
-              activeClassName={styles.selected}
-              /* activeStyle={{
-                fontWeight: "bold",
-                color: "red",
-              }} */
-            >
+          <li title="Go to homepage">
+            <NavLink exact to="/" activeClassName={styles.selected}>
               Home
             </NavLink>
           </li>
-          <li>
+          <li title="Go to setup page">
             <NavLink to="/setup" activeClassName={styles.selected}>
               Setup
             </NavLink>
           </li>
           {correct > 0 && (
-            <li>
+            <li title="Go to result page">
               <NavLink
                 to="/result"
                 activeClassName={styles.selected}

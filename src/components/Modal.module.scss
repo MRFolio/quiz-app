@@ -1,21 +1,22 @@
 @use "../styles/base" as b;
 
 @mixin question {
-  border: 1px solid b.$main-bg;
+  border: 2px solid b.$main-bg;
   border-radius: 0.3em;
-  padding: 0.15em;
-  margin: 0.75em 0;
+  padding: 0.3em;
+  margin: 0.9em 0;
   position: relative;
 
   .number {
     position: absolute;
-    top: 3.75em;
-    left: 2em;
+    top: 66%;
+    left: 6%;
     background: rgb(240, 240, 240);
-    border: 2px solid rgb(204, 124, 124);
-    border-radius: 2em;
-    padding: 0.25em 0.75em;
+    border: 4px outset b.$main-bg;
+    border-radius: 50%;
+    padding: 0.25em 0.7em;
     font-size: 1rem;
+    transform: translate(-6%, -66%);
 
     @include b.for-mobile {
       top: 4.2em;
@@ -36,11 +37,11 @@
   justify-content: center;
   opacity: 1;
   z-index: 100;
-  animation: fade 0.7s ease-out;
+  animation: fade 0.8s ease-out;
 
   .modal-content {
     background: rgb(230, 230, 230);
-    width: 96vw;
+    min-width: 80vw;
     height: 80vh;
     max-width: 626px;
     padding: 1em;
@@ -55,7 +56,7 @@
 
     .heading {
       margin: 0.2em 0.6em;
-      padding: 0.15em;
+      padding: 0.3em;
       background: rgba(b.$main-bg, 1);
       border-radius: 0.2em;
       color: rgb(241, 241, 241);
@@ -67,18 +68,18 @@
 
     .questionIncorrect {
       @include question;
-      background: rgb(230, 172, 172);
+      background: rgb(240, 161, 161);
     }
 
     .answers {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.15em 0.25em;
-      border: 1px solid b.$main-bg;
+      padding: 0.2em 0.4em;
+      border: 2px solid b.$main-bg;
       border-radius: 0.2em;
       width: 66%;
-      margin: 0.3em auto;
+      margin: 0.6em auto;
 
       .rightText {
         padding: 0.15em 0.25em;
@@ -86,6 +87,7 @@
         background: rgba(b.$main-bg, 1);
         border-radius: 0.2em;
         color: rgb(240, 240, 240);
+        font-size: 1.1rem;
       }
     }
 

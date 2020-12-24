@@ -16,8 +16,12 @@ const App = () => {
     <>
       <Router>
         <Navbar />
-        <AnimatePresence exitBeforeEnter>
-          <Switch>
+        <AnimatePresence
+          initial={false}
+          exitBeforeEnter
+          onExitComplete={() => console.log('exit')}
+        >
+          <Switch /* location={location} key={location.pathname} */>
             <Route exact path="/" component={Home} />
             <Route path="/setup" component={Setup} />
             <Route path="/result" component={Result} />

@@ -6,6 +6,11 @@ const initialQuizState = {
   amount: 10,
   category: 21,
   difficulty: 'easy',
+  timelimit: 30000,
+  time: {
+    start: 0,
+    end: 10,
+  },
 };
 
 const QuizProvider = ({ children }) => {
@@ -14,7 +19,6 @@ const QuizProvider = ({ children }) => {
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -42,8 +46,6 @@ const QuizProvider = ({ children }) => {
         setCorrect,
         userAnswers,
         setUserAnswers,
-        showModal,
-        setShowModal,
         handleChange,
       }}
     >

@@ -8,6 +8,7 @@
   background: rgb(214, 235, 214);
   border: 1px solid #a7a6a6;
   border-radius: 0.5em;
+  overflow-x: hidden;
 
   @include b.for-mobile {
     margin: 1.5em auto;
@@ -53,7 +54,11 @@
 
     &:hover {
       background: b.$border-highlight;
-      transform: scale(1.03);
+      transform: scale(1.06);
+    }
+
+    &:focus {
+      outline: 2px solid rgb(30, 240, 93);
     }
 
     &:last-of-type {
@@ -68,4 +73,9 @@
       width: 80%;
     }
   }
+}
+
+.countdown {
+  display: grid;
+  place-items: center;
 }
