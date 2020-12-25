@@ -59,7 +59,7 @@ const SetupForm = () => {
       } else {
         setQuestions([]);
       }
-      history.push({ pathname: '/questions', state: { questions, quiz } });
+      history.push({ pathname: '/questions', state: { questions } });
     } catch (error) {
       console.log(error);
     }
@@ -140,7 +140,7 @@ const SetupForm = () => {
             <option value="hard">Hard</option>
           </select>
         </div>
-        <div className="selectionThree">
+        {/*         <div className="selectionThree">
           <label htmlFor="timelimit">Select timelimit for each question:</label>
           <select
             name="timelimit"
@@ -153,7 +153,7 @@ const SetupForm = () => {
             <option value={20000}>20 seconds</option>
             <option value={30000}>30 seconds</option>
           </select>
-        </div>
+        </div> */}
         <button type="submit" className={styles.btn}>
           Start Quiz
         </button>

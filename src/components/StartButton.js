@@ -1,14 +1,29 @@
-import { Link } from "react-router-dom";
-import styles from "./StartButton.module.scss";
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import styles from './StartButton.module.scss';
 
-const StartButton = () => {
-  return (
-    <Link to="/setup">
-      <button className={styles.btn} aria-label="Start quiz setup">
-        Get Started
-      </button>
-    </Link>
-  );
+const item = {
+  hidden: { opacity: 0, y: 100, scale: 1.6 },
+  show: { opacity: 1, y: 0, scale: 1 },
 };
+
+const transitionItems = {
+  transition: 'tween',
+  ease: 'backOut',
+  duration: 0.6,
+};
+
+const StartButton = () => (
+  <Link to="/setup">
+    <motion.button
+      className={styles.btn}
+      aria-label="Start quiz setup"
+      variants={item}
+      transition={transitionItems}
+    >
+      Get Started
+    </motion.button>
+  </Link>
+);
 
 export default StartButton;

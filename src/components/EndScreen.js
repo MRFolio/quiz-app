@@ -18,9 +18,7 @@ const EndScreen = () => {
 
   const elapsedTime = (end / 1000).toFixed();
 
-  const handleClick = () => {
-    history.push('/setup');
-  };
+  const handleClick = () => history.push('/setup');
 
   const score = ((correct / questions.length) * 100).toFixed(0);
 
@@ -42,7 +40,8 @@ const EndScreen = () => {
       <article className={styles.result}>
         <p className={styles.resultHeading}>Your Score</p>
         <p className={styles.resultNumber}>
-          <strong>{score}%</strong>
+          <strong>{score}</strong>
+          <span>%</span>
         </p>
         <p className={styles.resultInfo}>{rating(score)}</p>
       </article>

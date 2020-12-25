@@ -2,18 +2,16 @@ import { motion } from 'framer-motion';
 import Introduction from '../components/Introduction';
 import { pageTransition, pageVariants } from '../utils';
 
-const Home = () => {
-  return (
-    <motion.main
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
-      className="main"
-    >
-      <Introduction />
-    </motion.main>
-  );
-};
+const Home = () => (
+  <motion.main
+    initial="initial"
+    animate="in"
+    exit="out"
+    variants={pageVariants}
+    transition={pageTransition}
+    className="main"
+  >
+    <Introduction />
+  </motion.main>
+);
 export default Home;

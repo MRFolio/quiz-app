@@ -4,6 +4,7 @@ import styles from './Navbar.module.scss';
 
 const Navbar = () => {
   const { correct } = useQuizContext();
+
   return (
     <header className={styles.header}>
       <div className={styles.headerLeft}>

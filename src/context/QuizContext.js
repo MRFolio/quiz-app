@@ -6,7 +6,6 @@ const initialQuizState = {
   amount: 10,
   category: 21,
   difficulty: 'easy',
-  timelimit: 30000,
   time: {
     start: 0,
     end: 10,
@@ -25,13 +24,6 @@ const QuizProvider = ({ children }) => {
     const value = e.target.value;
     setQuiz({ ...quiz, [name]: value });
   };
-
-  // handleSubmit
-  // async function -> end of the event loop
-  // await call api
-  // await json
-  // setQuestion
-  // redirect
 
   return (
     <QuizContext.Provider

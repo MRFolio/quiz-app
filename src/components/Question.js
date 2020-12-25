@@ -1,8 +1,13 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { nanoid } from 'nanoid';
-import Countdown from 'react-countdown';
 import { useHistory } from 'react-router-dom';
 import { useQuizContext } from '../context/QuizContext';
+import {
+  answerTransition,
+  answerVariants,
+  questionTransition,
+  questionVariant,
+} from '../utils';
 import unescapeHtml from '../utils/textConversion';
 import InfoContainer from './InfoContainer';
 import styles from './Question.module.scss';
@@ -20,48 +25,32 @@ const Question = () => {
     setQuiz,
   } = useQuizContext();
 
+  const history = useHistory();
+
   const { question, correctAnswer, incorrectAnswers } = questions[index];
   const answers = [...incorrectAnswers];
 
-  const history = useHistory();
-
-  const Completionist = () => <span>You are good to go!</span>;
-
-  const renderer = ({ seconds, completed }) => {
-    if (completed) {
-      // Render a completed state
-      history.push('/result');
-      return <Completionist />;
-    } else {
-      // Render a countdown
-      return <span>{seconds} seconds</span>;
-    }
-  };
-
-  /* completed ? console.log('tere') : <span>{seconds} seconds</span>; */
-
   const nextQuestion = () => {
     if (index >= questions.length - 1) {
-      setIndex(0);
       const now = Date.now();
-      const time = now - quiz.time.start;
-      setQuiz({ ...quiz, time: { end: time } });
+      const timeSpent = now - quiz.time.start;
+      setQuiz({ ...quiz, time: { end: timeSpent } });
       history.push('/result');
     }
     setIndex(index + 1);
   };
 
   const checkAnswer = (value) => {
-    const correctAnswer = value === questions[index].correctAnswer;
+    const isCorrect = value === questions[index].correctAnswer;
 
-    if (correctAnswer) {
+    if (isCorrect) {
       setCorrect(correct + 1);
     }
 
     const answerObject = {
       question: questions[index].question,
       answer: value,
-      correct: correctAnswer,
+      correct: isCorrect,
       correctAnswer: questions[index].correctAnswer,
     };
 
@@ -78,7 +67,6 @@ const Question = () => {
     answers[randomNumber] = correctAnswer;
   }
 
-  // map through for nanoid
   const answersWithId = answers.map((answer) => {
     const answerId = nanoid();
     const newObject = {
@@ -88,58 +76,9 @@ const Question = () => {
     return newObject;
   });
 
-  //animation
-  const questionVariant = {
-    initial: {
-      opacity: 0,
-      y: -50,
-      x: -150,
-      scale: 0.6,
-    },
-    in: {
-      opacity: 1,
-      y: 0,
-      x: 0,
-      scale: 1,
-    },
-    out: {
-      opacity: 0,
-      y: -100,
-      x: 150,
-      scale: 1.4,
-    },
-  };
-
-  const questionTransition = {
-    transition: 'tween',
-    ease: 'anticipate',
-    duration: 0.5,
-  };
-
-  const answerVariants = {
-    initial: {
-      x: -200,
-      opacity: 0,
-    },
-    in: {
-      x: 0,
-      opacity: 1,
-    },
-    out: {
-      x: 200,
-      opacity: 0,
-    },
-  };
-
-  const answerTransition = {
-    transition: 'tween',
-    ease: 'backOut',
-    duration: 0.4,
-  };
-
   return (
     <article className={styles.container}>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence exitBeforeEnter initial={false}>
         <motion.h2
           key={question}
           className={styles.question}
@@ -172,12 +111,6 @@ const Question = () => {
         </AnimatePresence>
       </div>
       <InfoContainer />
-      <Countdown
-        date={Date.now() + Number(quiz.timelimit)}
-        onComplete={() => history.push('/result')}
-        className={styles.countdown}
-        renderer={renderer}
-      />
     </article>
   );
 };

@@ -37,13 +37,13 @@
   justify-content: center;
   opacity: 1;
   z-index: 100;
-  animation: fade 0.8s ease-out;
+  animation: fade 1s ease-out;
 
   .modal-content {
     background: rgb(230, 230, 230);
-    min-width: 80vw;
+    width: 80vw;
+    max-width: 866px;
     height: 80vh;
-    max-width: 626px;
     padding: 1em;
     border-radius: 0.3em;
     text-align: center;

@@ -52,10 +52,10 @@
     cursor: pointer;
     transition: all 0.4s ease-out;
 
-    &:hover {
+    /* &:hover {
       background: b.$border-highlight;
       transform: scale(1.06);
-    }
+    } */
 
     &:focus {
       outline: 2px solid rgb(30, 240, 93);
@@ -74,8 +74,8 @@
     }
   }
 }
-
+/* 
 .countdown {
   display: grid;
   place-items: center;
-}
+} */

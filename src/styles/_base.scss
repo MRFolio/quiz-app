@@ -3,7 +3,6 @@ $border-highlight: #93f4ab;
 $main-bg: #2a9d8f;
 
 // mixins
-
 @mixin for-mobile {
   @media only screen and (max-width: 628px) {
     @content;
@@ -28,10 +27,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   color: #111111;
+  overflow: hidden;
 }
 
 html {
-  background: rgb(244, 162, 97);
+  background: rgb(135, 180, 175);
   background: linear-gradient(
     180deg,
     rgb(135, 180, 175) 0%,
