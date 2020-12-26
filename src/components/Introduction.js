@@ -3,15 +3,13 @@ import questionsvg from '../images/question.svg';
 import styles from './Introduction.module.scss';
 import StartButton from './StartButton';
 
+//animations
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.35,
-      /* delayChildren: 0.2, */
-      /* when: 'beforeChildren', */
-      /* staggerDirection: -1, */
+      staggerChildren: 0.4,
     },
   },
 };
@@ -34,7 +32,7 @@ const item3 = {
 const transitionItems = {
   transition: 'tween',
   ease: 'backOut',
-  duration: 0.8,
+  duration: 0.9,
 };
 
 const transitionItems2 = {

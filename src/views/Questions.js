@@ -6,7 +6,6 @@ const Questions = () => (
   <motion.main
     initial="initial"
     animate="in"
-    exit="out"
     variants={pageVariants}
     transition={pageTransition}
     className="main"

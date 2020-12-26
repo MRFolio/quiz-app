@@ -6,7 +6,6 @@ const Home = () => (
   <motion.main
     initial="initial"
     animate="in"
-    exit="out"
     variants={pageVariants}
     transition={pageTransition}
     className="main"
@@ -14,4 +13,5 @@ const Home = () => (
     <Introduction />
   </motion.main>
 );
+
 export default Home;

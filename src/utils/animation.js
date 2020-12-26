@@ -12,12 +12,6 @@ const pageVariants = {
     y: 0,
     scale: 1,
   },
-  out: {
-    opacity: 0,
-    y: -50,
-    x: 150,
-    scale: 1.15,
-  },
 };
 
 const pageTransition = {

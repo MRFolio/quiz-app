@@ -7,11 +7,11 @@ const Error = () => (
     className="main"
     initial="initial"
     animate="in"
-    exit="out"
     variants={pageVariants}
     transition={pageTransition}
   >
     <ErrorCont />
   </motion.main>
 );
+
 export default Error;

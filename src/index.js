@@ -7,9 +7,7 @@ import './styles/main.scss';
 ReactDOM.render(
   <React.StrictMode>
     <QuizProvider>
-      {/* <Router> */}
       <App />
-      {/* </Router> */}
     </QuizProvider>
   </React.StrictMode>,
   document.getElementById('root')

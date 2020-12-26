@@ -17,10 +17,18 @@ const EndScreen = () => {
   } = quiz;
 
   const elapsedTime = (end / 1000).toFixed();
+  const minutes = Math.floor(elapsedTime / 60);
+  const seconds = elapsedTime - minutes * 60;
+  const minuteText = minutes > 1 ? 'minutes' : 'minute';
+  const secondsText = seconds > 1 ? 'seconds' : 'second';
+  const formatedTime =
+    minutes > 0
+      ? `${minutes} ${minuteText} ${seconds} seconds`
+      : `${elapsedTime} ${secondsText}`;
 
   const handleClick = () => history.push('/setup');
 
-  const score = ((correct / questions.length) * 100).toFixed(0);
+  const score = ((correct / questions.length) * 100).toFixed();
 
   const rating = (score) => {
     if (score < 40) {
@@ -41,7 +49,7 @@ const EndScreen = () => {
         <p className={styles.resultHeading}>Your Score</p>
         <p className={styles.resultNumber}>
           <strong>{score}</strong>
-          <span>%</span>
+          <span className={styles.percent}>%</span>
         </p>
         <p className={styles.resultInfo}>{rating(score)}</p>
       </article>
@@ -50,7 +58,7 @@ const EndScreen = () => {
         <strong>{questions.length}</strong> questions correctly.
       </p>
       <p className={styles.resultText}>
-        Time spent: <strong>{elapsedTime} </strong>seconds.
+        Time spent: <strong>{formatedTime}</strong>.
       </p>
       <button
         onClick={() => setShowModal(true)}

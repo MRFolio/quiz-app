@@ -19,8 +19,9 @@
     transform: translate(-6%, -66%);
 
     @include b.for-mobile {
-      top: 4.2em;
-      left: 1.5em;
+      top: 70%;
+      left: 0%;
+      transform: translate(0%, -70%);
     }
   }
 }
@@ -49,6 +50,10 @@
     text-align: center;
     position: relative;
     overflow-y: scroll;
+
+    @include b.for-mobile {
+      width: 94vw;
+    }
 
     .title {
       font-size: 1.5rem;
@@ -80,6 +85,10 @@
       border-radius: 0.2em;
       width: 66%;
       margin: 0.6em auto;
+
+      @include b.for-mobile {
+        width: 80%;
+      }
 
       .rightText {
         padding: 0.15em 0.25em;

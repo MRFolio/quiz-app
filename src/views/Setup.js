@@ -7,7 +7,6 @@ const Setup = () => {
     <motion.main
       initial="initial"
       animate="in"
-      exit="out"
       variants={pageVariants}
       transition={pageTransition}
       className="main"
@@ -16,4 +15,5 @@ const Setup = () => {
     </motion.main>
   );
 };
+
 export default Setup;
