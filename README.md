@@ -1,18 +1,18 @@
-## Quiz app project built in React
+## Quiz app built in React
 
 You can check out the LIVE project [**HERE**](https://quiz-app-mr.netlify.app/ 'Completed project').
 
----
-
 Quiz data fetched from [Open Trivia Database API](https://opentdb.com/ 'Trivia  Database homepage').
 
-### Technologies/frameworks/libraries used:
+---
 
-- React
-- SASS (SCSS)
-- React Router for routing
-- Framer Motion for animations
-- React Icons for icons
+### Frameworks/libraries used:
+
+- **ReactJS**
+- **SASS** (SCSS modules)
+- **React Router** for routing
+- **Framer Motion** for animations
+- **React Icons** for icons
 
 ---
 
