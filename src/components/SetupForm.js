@@ -76,19 +76,6 @@ const SetupForm = () => {
       exit="out"
       variants={pageVariants}
       transition={pageTransition}
-      /* initial={{ opacity: 0, y: 60, scale: 0.3 }}
-      animate={{
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: { type: 'spring', stiffness: 300 },
-      }}
-      exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.6 } }} */
-      /* initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={pageTransition} */
       className={styles.container}
     >
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -140,20 +127,6 @@ const SetupForm = () => {
             <option value="hard">Hard</option>
           </select>
         </div>
-        {/*         <div className="selectionThree">
-          <label htmlFor="timelimit">Select timelimit for each question:</label>
-          <select
-            name="timelimit"
-            id="timelimit"
-            className={styles.formControl}
-            onChange={handleChange}
-            value={Number(quiz.timelimit)}
-          >
-            <option value={10000}>10 sec</option>
-            <option value={20000}>20 seconds</option>
-            <option value={30000}>30 seconds</option>
-          </select>
-        </div> */}
         <button type="submit" className={styles.btn}>
           Start Quiz
         </button>

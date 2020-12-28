@@ -28,9 +28,11 @@ const InfoContainer = () => {
         exit="out"
         key={index}
       >
-        <span className={styles.infoText}>
-          Correct answers: {correct}/{index}
-        </span>
+        {index > 0 && (
+          <span className={styles.infoText}>
+            Correct answers: {correct}/{index}
+          </span>
+        )}
         <span className={styles.infoText}>
           Total questions: {questions.length}
         </span>

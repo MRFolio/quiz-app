@@ -62,7 +62,7 @@ const EndScreen = () => {
       </p>
       <button
         onClick={() => setShowModal(true)}
-        className={styles.btnInfo}
+        className={styles.btn}
         title="Show all the questions and answers"
         aria-label="Go to questions and answers modal page"
       >
