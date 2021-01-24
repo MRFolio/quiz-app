@@ -1,10 +1,11 @@
 @use "../styles/base" as b;
 
 @mixin question {
-  border: 2px solid b.$main-bg;
+  border: 2px solid b.$mainBg;
   border-radius: 0.3em;
   padding: 0.3em;
   margin: 0.9em 0;
+  letter-spacing: 0.05em;
   position: relative;
 
   .number {
@@ -12,7 +13,7 @@
     top: 66%;
     left: 6%;
     background: rgb(240, 240, 240);
-    border: 4px outset b.$main-bg;
+    border: 3px solid b.$mainBg;
     border-radius: 50%;
     padding: 0.25em 0.7em;
     font-size: 1rem;
@@ -41,7 +42,7 @@
   animation: fade 1s ease-out;
 
   .modal-content {
-    background: rgb(230, 230, 230);
+    background: b.$containerBg;
     width: 80vw;
     max-width: 866px;
     height: 80vh;
@@ -62,7 +63,7 @@
     .heading {
       margin: 0.2em 0.6em;
       padding: 0.3em;
-      background: rgba(b.$main-bg, 1);
+      background: rgba(b.$mainBg, 1);
       border-radius: 0.2em;
       color: rgb(241, 241, 241);
     }
@@ -73,7 +74,7 @@
 
     .questionIncorrect {
       @include question;
-      background: rgb(240, 161, 161);
+      background: rgb(240, 140, 140);
     }
 
     .answers {
@@ -81,10 +82,17 @@
       justify-content: space-between;
       align-items: center;
       padding: 0.2em 0.4em;
-      border: 2px solid b.$main-bg;
+      border: 1px solid b.$mainBg;
       border-radius: 0.2em;
       width: 66%;
       margin: 0.6em auto;
+      background: b.$containerBg;
+      letter-spacing: 0.05em;
+
+      & > p {
+        color: black;
+        // font-weight: bold;
+      }
 
       @include b.for-mobile {
         width: 80%;
@@ -92,8 +100,8 @@
 
       .rightText {
         padding: 0.15em 0.25em;
-        border: 1px solid b.$main-bg;
-        background: rgba(b.$main-bg, 1);
+        border: 1px solid b.$mainBg;
+        background: rgba(b.$mainBg, 1);
         border-radius: 0.2em;
         color: rgb(240, 240, 240);
         font-size: 1.1rem;

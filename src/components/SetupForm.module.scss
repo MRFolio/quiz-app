@@ -1,9 +1,11 @@
+@use "../styles/base" as b;
+
 .container {
-  background: rgb(214, 235, 214);
+  background: b.$containerBg;
   margin: 3em auto;
-  border-radius: 0.5em;
-  padding: 1.5em 2.75em;
-  box-shadow: 5px 6px 8px #888888;
+  padding: 2em 4em;
+  border-radius: 0.25em;
+  box-shadow: b.$box-shadow;
 
   .heading {
     text-align: center;
@@ -19,7 +21,7 @@ div > label {
 .formControl {
   background: rgb(241, 241, 241);
   font-size: 1rem;
-  padding: 0.3rem 0.4rem;
+  padding: 0.5rem 0.4rem;
   margin: 0.4em 0.25em;
   width: 100%;
   border: 1px solid #a7a6a6;
@@ -28,23 +30,17 @@ div > label {
 }
 
 .btn {
-  padding: 0.5em 1em;
   margin: 0.4em 0.25em;
-  background: rgb(1, 107, 1);
-  border: 1px solid green;
-  border-radius: 0.15em;
   width: 100%;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: rgb(233, 231, 231);
-  transition: background 0.3s ease-out;
-  cursor: pointer;
+  @include b.buttonDefault;
 
   &:hover {
-    background: rgb(2, 163, 2);
+    background: b.$btnHoverBg;
   }
 
   &:focus {
     outline: 1px solid lightblue;
   }
+
+  @include b.active;
 }

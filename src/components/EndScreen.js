@@ -6,6 +6,20 @@ import { useQuizContext } from '../context/QuizContext';
 import styles from './EndScreen.module.scss';
 import Modal from './Modal';
 
+const rating = (userScore) => {
+  if (userScore < 40) {
+    return 'Beginner';
+  } else if (userScore > 60) {
+    return 'Competent';
+  } else if (userScore > 85) {
+    return 'Expert';
+  } else {
+    return 'Intermediate';
+  }
+};
+
+const isNanFix = (number) => (isNaN(number) ? 0 : number);
+
 const EndScreen = () => {
   const [showModal, setShowModal] = useState(false);
   const { correct, questions, quiz } = useQuizContext();
@@ -19,8 +33,8 @@ const EndScreen = () => {
   const elapsedTime = (end / 1000).toFixed();
   const minutes = Math.floor(elapsedTime / 60);
   const seconds = elapsedTime - minutes * 60;
-  const minuteText = minutes > 1 ? 'minutes' : 'minute';
-  const secondsText = seconds > 1 ? 'seconds' : 'second';
+  const minuteText = minutes === 1 ? 'minute' : 'minutes';
+  const secondsText = seconds === 1 ? 'second' : 'seconds';
   const formatedTime =
     minutes > 0
       ? `${minutes} ${minuteText} ${seconds} seconds`
@@ -30,36 +44,31 @@ const EndScreen = () => {
 
   const score = ((correct / questions.length) * 100).toFixed();
 
-  const rating = (score) => {
-    if (score < 40) {
-      return 'Beginner';
-    } else if (score > 60) {
-      return 'Competent';
-    } else if (score > 85) {
-      return 'Expert';
-    } else {
-      return 'Intermediate';
-    }
-  };
-
   return (
     <section className={styles.container}>
-      <h2 className={styles.heading}>Quiz finished!</h2>
+      <h2 className={styles.heading}>
+        <span className={styles.headingSpan}>Quiz finished!</span>
+      </h2>
       <article className={styles.result}>
-        <p className={styles.resultHeading}>Your Score</p>
+        <p className={styles.resultHeading}>Your Score:</p>
         <p className={styles.resultNumber}>
-          <strong>{score}</strong>
+          <strong>{isNanFix(score)}</strong>
           <span className={styles.percent}>%</span>
         </p>
-        <p className={styles.resultInfo}>{rating(score)}</p>
+        <p className={styles.resultInfo}>
+          {isNanFix(score) !== 0 ? rating(score) : 'Beginner'}
+        </p>
       </article>
-      <p className={styles.resultText}>
-        You answered <strong>{correct} </strong>out of {}
-        <strong>{questions.length}</strong> questions correctly.
-      </p>
-      <p className={styles.resultText}>
-        Time spent: <strong>{formatedTime}</strong>.
-      </p>
+      <div className={styles.textWrapper}>
+        <p className={styles.resultText}>
+          You answered <strong>{correct} </strong>out of {}
+          <strong>{questions.length}</strong> questions correctly.
+        </p>
+        <div className={styles.separator}></div>
+        <p className={styles.resultText}>
+          Time spent: <strong>{formatedTime}</strong>.
+        </p>
+      </div>
       <button
         onClick={() => setShowModal(true)}
         className={styles.btn}

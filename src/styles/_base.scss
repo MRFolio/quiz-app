@@ -1,6 +1,31 @@
-// variables
+// main variables
+$mainBg: #116914;
+$containerBg: #dbe0e2;
+$accentColor: #1e5511;
+$titleBg: #116914;
+// $paragraphBg: #073638;
+// $paragraphBg: #060d06;
+// $paragraphBg: #0f1f10;
+$paragraphBg: #052d2e;
+
+// border
 $border-highlight: #93f4ab;
-$main-bg: #2a9d8f;
+// text
+$white: rgb(250, 250, 250);
+
+// btn variables
+$btnText: rgb(246, 245, 245);
+$btnBg: #116914;
+$btnBorder: 4px double #b7d5d4;
+$btnHoverBg: #178c1b;
+$btnTransition: background 0.4s ease-out;
+$btnShadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+  rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+// shadow variables
+$box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+  rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+$text-shadow: rgb(223, 187, 42) 1px 0 8px;
 
 // mixins
 @mixin for-mobile {
@@ -9,9 +34,35 @@ $main-bg: #2a9d8f;
   }
 }
 
-@mixin for-tablet {
-  @media only screen and (max-width: 901px) {
+@mixin for-small-mobile {
+  @media only screen and (max-width: 470px) {
     @content;
+  }
+}
+
+@mixin for-tablet {
+  @media only screen and (max-width: 932px) {
+    @content;
+  }
+}
+
+@mixin buttonDefault {
+  padding: 0.5em 1em;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $btnText;
+  letter-spacing: 0.06em;
+  background: $btnBg;
+  border: $btnBorder;
+  border-radius: 0.15em;
+  box-shadow: $btnShadow;
+  transition: $btnTransition;
+  cursor: pointer;
+}
+
+@mixin active {
+  &:active {
+    box-shadow: inset 0px 0px 5px #d8dddf;
   }
 }
 
@@ -31,12 +82,10 @@ body {
 }
 
 html {
-  background: rgb(135, 180, 175);
-  background: linear-gradient(
-    180deg,
-    rgb(135, 180, 175) 0%,
-    rgba(82, 77, 73, 0.256) 100%
-  );
+  background: #91b6a7;
+  background: linear-gradient(180deg, #d6e0d7 0%, rgba(#052d2e, 0.676) 100%);
+  // background: linear-gradient(180deg, #bcc0bc 0%, rgba(#888686, 0.756) 100%);
+  // background: linear-gradient(180deg, #bed6cf 0%, rgba(#073638, 0.656) 100%);
   background-repeat: no-repeat;
   background-size: cover;
   line-height: 1.5;

@@ -1,45 +1,15 @@
 import { motion } from 'framer-motion';
 import questionsvg from '../images/question.svg';
+import {
+  container,
+  item1,
+  item2,
+  item3,
+  transitionItems,
+  transitionItems2,
+} from '../utils';
 import styles from './Introduction.module.scss';
 import StartButton from './StartButton';
-
-//animations
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.4,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, x: 125 },
-  show: { opacity: 1, x: 0 },
-};
-
-const item2 = {
-  hidden: { opacity: 0, x: -125 },
-  show: { opacity: 1, x: 0 },
-};
-
-const item3 = {
-  hidden: { opacity: 0, y: -100 },
-  show: { opacity: 1, y: 0 },
-};
-
-const transitionItems = {
-  transition: 'tween',
-  ease: 'backOut',
-  duration: 0.9,
-};
-
-const transitionItems2 = {
-  transition: 'tween',
-  ease: 'backInOut',
-  duration: 1.35,
-};
 
 const Introduction = () => (
   <motion.section
@@ -48,13 +18,19 @@ const Introduction = () => (
     initial="hidden"
     animate="show"
   >
-    <motion.img
-      className={styles.img}
-      src={questionsvg}
-      alt="Green question marks circling around a person's head"
+    <motion.div
       variants={item3}
       transition={transitionItems2}
-    />
+      className={styles.circle}
+    >
+      <motion.img
+        className={styles.img}
+        src={questionsvg}
+        alt="Green question marks circling around a person's head"
+        variants={item3}
+        transition={transitionItems2}
+      />
+    </motion.div>
     <motion.h1
       className={styles.heading}
       variants={item2}
@@ -64,7 +40,7 @@ const Introduction = () => (
     </motion.h1>
     <motion.div
       className={styles.welcome}
-      variants={item}
+      variants={item1}
       transition={transitionItems}
     >
       <p>

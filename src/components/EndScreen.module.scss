@@ -1,108 +1,128 @@
 @use "../styles/base" as b;
 
-//variable
-$white: rgb(250, 250, 250);
-
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1.3em;
+  gap: 0.9em;
   flex-direction: column;
   flex-wrap: wrap;
+  background: b.$containerBg;
+  border-radius: 0.25em;
+  border: 1px solid #859e90;
+  box-shadow: b.$box-shadow;
+  padding: 1em 2em;
+
+  @include b.for-mobile {
+    padding: 2.4em 0.5em;
+    // display: block;
+  }
 }
 
 .heading {
-  font-size: 1.8rem;
-  color: $white;
-  text-shadow: rgb(223, 187, 42) 1px 0 1px;
+  font-size: 1.75rem;
   letter-spacing: 0.05em;
-  border-bottom: 4px groove b.$border-highlight;
+  padding: 0.15em;
+  color: #e4e4e4;
+  // transform: translateY(2%);
+
+  .headingSpan {
+    background: b.$titleBg;
+    padding: 0.25em 0.45em;
+    border: 4px double b.$containerBg;
+    border-radius: 0.75em 0.75em 0.15em 0.15em;
+    box-shadow: b.$btnShadow;
+  }
 }
 
 .result {
   width: 100%;
-  min-height: 38vh;
+  min-height: 34vh;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   text-align: center;
   position: relative;
-  border: 3px solid b.$border-highlight;
-  background: linear-gradient(
-      rgba(42, 157, 143, 0.9),
-      rgba(233, 241, 235, 0.01)
-    ),
+  background: linear-gradient(rgba(b.$mainBg, 0.9), rgba(233, 241, 235, 0.01)),
     url('../images/grey2x.png') center;
-  border-radius: 0.2em;
-  box-shadow: 5px 6px 8px #888888;
+  border-radius: 0.55em 0.55em 0 0;
+  // border: 2px dotted b.$containerBg;
+  // border-top: none;
 
   .resultHeading {
-    color: $white;
+    color: b.$white;
     letter-spacing: 0.05em;
     font-size: 1.5rem;
     font-weight: bold;
+    // text-shadow: b.$text-shadow;
   }
 
   .resultNumber {
-    padding: 0.32em 0.44em;
+    // padding: 0em 0.44em;
     background: transparent;
-    border: 4px outset b.$border-highlight;
-    font-size: 3.5rem;
+    // border: 4px outset #dce7eb;
+    font-size: 6rem;
     font-weight: bold;
     color: rgb(250, 250, 250);
-    text-shadow: rgb(223, 187, 42) 1px 0 8px;
+    text-shadow: b.$text-shadow;
     letter-spacing: 0.05em;
   }
 
   .percent {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .resultInfo {
-    color: $white;
-    text-shadow: rgb(223, 187, 42) 1px 0 8px;
+    color: b.$white;
+    text-shadow: b.$text-shadow;
     letter-spacing: 0.05em;
     font-size: 1.7rem;
     font-weight: bold;
   }
 }
 
-.resultText {
-  font-size: 1.25rem;
+.textWrapper {
+  width: 100%;
+  border-radius: 0 0 0.55em 0.55em;
+  border: 1px solid b.$paragraphBg;
+  margin-top: -0.9em;
+  .separator {
+    border-bottom: 1px dotted b.$paragraphBg;
+    position: relative;
+  }
+
+  .resultText {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0.35em 0em;
+  }
 }
 
 .btn {
   width: 100%;
-  padding: 0.5em 1em;
-  border-radius: 0.25em;
-  border: 2px solid b.$main-bg;
-  background: rgba(230, 233, 230, 0.65);
-  color: rgb(15, 15, 15);
-  font-size: 1.25rem;
-  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.25em;
+  @include b.buttonDefault;
   cursor: pointer;
-  transition: all 0.4s ease-out;
 
   &:hover {
-    background: b.$main-bg;
-    border-color: b.$main-bg;
-    color: rgb(236, 236, 236);
+    background: b.$btnHoverBg;
   }
 
   &:focus {
     outline: 1px solid lightblue;
   }
+
+  @include b.active;
+
+  &:first-of-type {
+    background: b.$paragraphBg;
+  }
 }
 
 .icon {
   font-size: 1.4rem;
-  background: rgba(b.$main-bg, 0.15);
-  border-radius: 0.1em;
 }

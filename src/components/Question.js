@@ -7,8 +7,8 @@ import {
   answerVariants,
   questionTransition,
   questionVariant,
+  unescapeHtml,
 } from '../utils';
-import unescapeHtml from '../utils/textConversion';
 import InfoContainer from './InfoContainer';
 import styles from './Question.module.scss';
 
@@ -60,12 +60,11 @@ const Question = () => {
 
   const randomNumber = Math.floor(Math.random() * (answers.length + 1));
 
-  if (randomNumber === 3) {
-    answers.push(correctAnswer);
-  } else {
-    answers.push(incorrectAnswers[randomNumber]);
-    answers[randomNumber] = correctAnswer;
-  }
+  randomNumber === 3
+    ? answers.push(correctAnswer)
+    : answers.push(incorrectAnswers[randomNumber]);
+
+  answers[randomNumber] = correctAnswer;
 
   const answersWithId = answers.map((answer) => {
     const answerId = nanoid();
@@ -98,7 +97,11 @@ const Question = () => {
               key={answer.id}
               onClick={() => checkAnswer(answer.answer)}
               className={styles.answersBtn}
-              whileHover={{ scale: 1.06, backgroundColor: '#93f4ab' }}
+              whileHover={{
+                scale: 1.04,
+                backgroundColor: '#116914',
+                color: '#fff',
+              }}
               variants={answerVariants}
               transition={answerTransition}
               initial="initial"

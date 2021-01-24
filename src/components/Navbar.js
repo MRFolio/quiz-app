@@ -7,13 +7,11 @@ const Navbar = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.headerLeft}>
-        <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>
-          <h1 className={styles.heading} title="Go to homepage">
-            Quiz App
-          </h1>
-        </Link>
-      </div>
+      <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+        <h1 className={styles.heading} title="Go to homepage">
+          Quiz App
+        </h1>
+      </Link>
       <nav className={styles.nav}>
         <ul className={styles.list}>
           <li title="Go to homepage">

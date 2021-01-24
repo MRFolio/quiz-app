@@ -29,8 +29,8 @@ const SetupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setQuiz({ ...quiz, time: { start: Date.now() } });
     setLoading(true);
+    setQuiz({ ...quiz, time: { start: Date.now() } });
     setCorrect(0);
     setIndex(0);
     setUserAnswers([]);

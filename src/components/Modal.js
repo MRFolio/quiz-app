@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useCallback, useEffect, useRef } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { useQuizContext } from '../context/QuizContext';
-import unescapeHtml from '../utils/textConversion';
+import { unescapeHtml } from '../utils';
 import styles from './Modal.module.scss';
 
 const Modal = ({ showModal, setShowModal }) => {

@@ -5,13 +5,14 @@
   max-width: 788px;
   margin: 2.75em auto;
   padding: 1.5em 2.75em;
-  box-shadow: 5px 6px 8px #888888;
-  background: rgb(214, 235, 214);
-  border: 1px solid #a7a6a6;
-  border-radius: 0.5em;
+  box-shadow: b.$box-shadow;
+  background: b.$containerBg;
+  // border: 1px solid b.$paragraphBg;
+  border-radius: 0.25em;
   overflow-x: hidden;
 
   @include b.for-mobile {
+    width: 98%;
     margin: 1.5em auto;
     padding: 0.5em 1em;
   }
@@ -22,8 +23,8 @@
   text-align: center;
   letter-spacing: 0.02em;
   padding: 0.4em;
-  border: 2px solid b.$main-bg;
-  background: rgba(b.$main-bg, 0.9);
+  border: 2px solid b.$mainBg;
+  background: rgba(b.$mainBg, 0.9);
   color: rgb(241, 241, 241);
   border-radius: 0.2em;
 
@@ -45,13 +46,12 @@
     width: 60%;
     font-size: 1.2rem;
     padding: 0.5em 0.75em;
-    background: rgb(234, 240, 234);
+    background: rgb(235, 240, 235);
     border-radius: 0.2em;
-    border: 1px solid b.$main-bg;
-    transition: background 0.15s ease-out;
+    border: 1px solid b.$mainBg;
     letter-spacing: 0.04em;
     cursor: pointer;
-    transition: all 0.4s ease-out;
+    transition: all 0.3s ease-out;
 
     /* &:hover {
       background: b.$border-highlight;
@@ -59,8 +59,10 @@
     } */
 
     &:focus {
-      outline: 2px solid rgb(30, 240, 93);
+      outline: 1px solid rgb(27, 124, 92);
     }
+
+    @include b.active;
 
     &:last-of-type {
       margin-bottom: 1.25em;
@@ -75,8 +77,3 @@
     }
   }
 }
-/* 
-.countdown {
-  display: grid;
-  place-items: center;
-} */
