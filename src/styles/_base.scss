@@ -27,15 +27,20 @@ $box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
   rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 $text-shadow: rgb(223, 187, 42) 1px 0 8px;
 
+// breakpoints
+$tablet: 932px;
+$mobile: 628px;
+$small-mobile: 470px;
+
 // mixins
 @mixin for-mobile {
-  @media only screen and (max-width: 628px) {
+  @media only screen and (max-width: $mobile) {
     @content;
   }
 }
 
 @mixin for-small-mobile {
-  @media only screen and (max-width: 470px) {
+  @media only screen and (max-width: $small-mobile) {
     @content;
   }
 }
@@ -82,10 +87,10 @@ body {
 }
 
 html {
-  background: #91b6a7;
-  background: linear-gradient(180deg, #d6e0d7 0%, rgba(#052d2e, 0.676) 100%);
+  background: #bed6cf;
+  // background: linear-gradient(180deg, #d6e0d7 0%, rgba(#052d2e, 0.386) 100%);
   // background: linear-gradient(180deg, #bcc0bc 0%, rgba(#888686, 0.756) 100%);
-  // background: linear-gradient(180deg, #bed6cf 0%, rgba(#073638, 0.656) 100%);
+  background: linear-gradient(180deg, #bed6cf 0%, rgba(#073638, 0.406) 100%);
   background-repeat: no-repeat;
   background-size: cover;
   line-height: 1.5;

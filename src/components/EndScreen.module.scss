@@ -28,9 +28,10 @@
 
   .headingSpan {
     background: b.$titleBg;
-    padding: 0.25em 0.45em;
-    border: 4px double b.$containerBg;
-    border-radius: 0.75em 0.75em 0.15em 0.15em;
+    padding: 0.3em 0.5em;
+    border: 3px double b.$containerBg;
+    // border-radius: 1em;
+    border-radius: 1em 0.15em;
     box-shadow: b.$btnShadow;
   }
 }

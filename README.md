@@ -6,13 +6,13 @@ Quiz data fetched from [Open Trivia Database API](https://opentdb.com/ 'Trivia  
 
 ---
 
-### Frameworks/libraries used:
+### Frameworks/libraries/tools used:
 
 - **ReactJS**
-- **SASS** (SCSS modules)
 - **React Router** for routing
 - **Framer Motion** for animations
 - **React Icons** for icons
+- **SASS** (SCSS modules)
 
 ---
 
@@ -21,7 +21,7 @@ Quiz data fetched from [Open Trivia Database API](https://opentdb.com/ 'Trivia  
 Homepage:
 
 <p align="center">
-<img src="https://i.imgur.com/cVA1Bdw.png" alt="Screencapture of the deployed Quiz App project. User can create a custom quiz and then play it." title="Screenshot of the homepage"/>
+<img src="https://i.imgur.com/QxSe0L0.png" alt="Screencapture of the deployed Quiz App project. User can create a custom quiz and then play it." title="Screenshot of the homepage"/>
 </p>
 
 ---
@@ -29,7 +29,7 @@ Homepage:
 Quiz setup page:
 
 <p align="center">
-<img src="https://i.imgur.com/06XNaMy.png" alt="Screencapture of the deployed Quiz App project. User can create a custom quiz and then play it." title="Screenshot of the quiz setup page"/>
+<img src="https://i.imgur.com/mgtunOj.png" alt="Screencapture of the deployed Quiz App project. User can create a custom quiz and then play it." title="Screenshot of the quiz setup page"/>
 </p>
 
 ---
@@ -37,7 +37,7 @@ Quiz setup page:
 Questions page:
 
 <p align="center">
-<img src="https://i.imgur.com/lFwBqU3.png" alt="Screencapture of the deployed Quiz App project." title="Screenshot of the questions page"/>
+<img src="https://i.imgur.com/PtShSj2.png" alt="Screencapture of the deployed Quiz App project." title="Screenshot of the questions page"/>
 </p>
 
 ---
@@ -45,7 +45,7 @@ Questions page:
 Result page:
 
 <p align="center">
-<img src="https://i.imgur.com/jzX9McU.png" alt="Screencapture of the deployed Quiz App project." title="Screenshot of the result page"/>
+<img src="https://i.imgur.com/ltcKqtZ.png" alt="Screencapture of the deployed Quiz App project." title="Screenshot of the result page"/>
 </p>
 
 ---
@@ -53,5 +53,5 @@ Result page:
 Modal section:
 
 <p align="center">
-<img src="https://i.imgur.com/LzaGRnE.png" alt="Screencapture of the deployed Quiz App project." title="Screenshot of the modal page in result section"/>
+<img src="https://i.imgur.com/3bkUCrK.png" alt="Screencapture of the deployed Quiz App project." title="Screenshot of the modal page in result section"/>
 </p>
