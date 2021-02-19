@@ -47,13 +47,11 @@ const SetupForm = () => {
             question,
             correct_answer: correctAnswer,
             incorrect_answers: incorrectAnswers,
-          }) => {
-            return {
-              question,
-              correctAnswer,
-              incorrectAnswers,
-            };
-          }
+          }) => ({
+            question,
+            correctAnswer,
+            incorrectAnswers,
+          })
         );
         setQuestions(questions);
       } else {

@@ -10,7 +10,7 @@
     color: rgb(39, 38, 38);
   }
 
-  @include b.for-mobile {
+  @include b.mediaQuery(b.$mobile) {
     flex-direction: column;
     gap: 0.5em;
   }

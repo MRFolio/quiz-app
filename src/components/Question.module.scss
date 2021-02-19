@@ -7,11 +7,10 @@
   padding: 1.5em 2.75em;
   box-shadow: b.$box-shadow;
   background: b.$containerBg;
-  // border: 1px solid b.$paragraphBg;
   border-radius: 0.25em;
   overflow-x: hidden;
 
-  @include b.for-mobile {
+  @include b.mediaQuery(b.$mobile) {
     width: 98%;
     margin: 1.5em auto;
     padding: 0.5em 1em;
@@ -28,7 +27,7 @@
   color: rgb(241, 241, 241);
   border-radius: 0.2em;
 
-  @include b.for-mobile {
+  @include b.mediaQuery(b.$mobile) {
     border-width: 2px;
     margin-top: 0.6em;
   }
@@ -53,11 +52,6 @@
     cursor: pointer;
     transition: all 0.3s ease-out;
 
-    /* &:hover {
-      background: b.$border-highlight;
-      transform: scale(1.06);
-    } */
-
     &:focus {
       outline: 1px solid rgb(27, 124, 92);
     }
@@ -68,11 +62,11 @@
       margin-bottom: 1.25em;
     }
 
-    @include b.for-mobile {
+    @include b.mediaQuery(b.$mobile) {
       width: 100%;
     }
 
-    @include b.for-tablet {
+    @include b.mediaQuery(b.$tablet) {
       width: 80%;
     }
   }

@@ -13,9 +13,8 @@
   box-shadow: b.$box-shadow;
   padding: 1em 2em;
 
-  @include b.for-mobile {
+  @include b.mediaQuery(b.$mobile) {
     padding: 2.4em 0.5em;
-    // display: block;
   }
 }
 
@@ -24,13 +23,11 @@
   letter-spacing: 0.05em;
   padding: 0.15em;
   color: #e4e4e4;
-  // transform: translateY(2%);
 
   .headingSpan {
     background: b.$titleBg;
     padding: 0.3em 0.5em;
     border: 3px double b.$containerBg;
-    // border-radius: 1em;
     border-radius: 1em 0.15em;
     box-shadow: b.$btnShadow;
   }
@@ -48,21 +45,16 @@
   background: linear-gradient(rgba(b.$mainBg, 0.9), rgba(233, 241, 235, 0.01)),
     url('../images/grey2x.png') center;
   border-radius: 0.55em 0.55em 0 0;
-  // border: 2px dotted b.$containerBg;
-  // border-top: none;
 
   .resultHeading {
     color: b.$white;
     letter-spacing: 0.05em;
     font-size: 1.5rem;
     font-weight: bold;
-    // text-shadow: b.$text-shadow;
   }
 
   .resultNumber {
-    // padding: 0em 0.44em;
     background: transparent;
-    // border: 4px outset #dce7eb;
     font-size: 6rem;
     font-weight: bold;
     color: rgb(250, 250, 250);

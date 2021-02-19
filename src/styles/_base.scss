@@ -3,9 +3,6 @@ $mainBg: #116914;
 $containerBg: #dbe0e2;
 $accentColor: #1e5511;
 $titleBg: #116914;
-// $paragraphBg: #073638;
-// $paragraphBg: #060d06;
-// $paragraphBg: #0f1f10;
 $paragraphBg: #052d2e;
 
 // border
@@ -33,20 +30,8 @@ $mobile: 628px;
 $small-mobile: 470px;
 
 // mixins
-@mixin for-mobile {
-  @media only screen and (max-width: $mobile) {
-    @content;
-  }
-}
-
-@mixin for-small-mobile {
-  @media only screen and (max-width: $small-mobile) {
-    @content;
-  }
-}
-
-@mixin for-tablet {
-  @media only screen and (max-width: 932px) {
+@mixin mediaQuery($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
     @content;
   }
 }

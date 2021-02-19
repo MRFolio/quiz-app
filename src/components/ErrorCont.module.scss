@@ -39,7 +39,7 @@
     outline: 1px solid lightblue;
   }
 
-  @include b.for-mobile {
+  @include b.mediaQuery(b.$mobile) {
     padding: 0.4em 0.8em;
   }
 }

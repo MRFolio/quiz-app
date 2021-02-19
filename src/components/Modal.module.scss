@@ -19,7 +19,7 @@
     font-size: 1rem;
     transform: translate(-6%, -66%);
 
-    @include b.for-mobile {
+    @include b.mediaQuery(b.$mobile) {
       top: 70%;
       left: 0%;
       transform: translate(0%, -70%);
@@ -52,7 +52,7 @@
     position: relative;
     overflow-y: scroll;
 
-    @include b.for-mobile {
+    @include b.mediaQuery(b.$mobile) {
       width: 94vw;
     }
 
@@ -91,10 +91,9 @@
 
       & > p {
         color: black;
-        // font-weight: bold;
       }
 
-      @include b.for-mobile {
+      @include b.mediaQuery(b.$mobile) {
         width: 80%;
       }
 
@@ -127,7 +126,7 @@
         border-color: rgb(228, 54, 54);
       }
 
-      @include b.for-mobile {
+      @include b.mediaQuery(b.$mobile) {
         right: 0.65em;
         top: 0.65em;
       }
