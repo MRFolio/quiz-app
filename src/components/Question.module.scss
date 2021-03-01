@@ -1,14 +1,13 @@
 @use "../styles/base" as b;
 
 .container {
+  @extend %containerBox;
   width: 80%;
   max-width: 788px;
   margin: 2.75em auto;
   padding: 1.5em 2.75em;
-  box-shadow: b.$box-shadow;
-  background: b.$containerBg;
-  border-radius: 0.25em;
   overflow-x: hidden;
+  background: #ffffff;
 
   @include b.mediaQuery(b.$mobile) {
     width: 98%;
@@ -56,7 +55,7 @@
       outline: 1px solid rgb(27, 124, 92);
     }
 
-    @include b.active;
+    @extend %active;
 
     &:last-of-type {
       margin-bottom: 1.25em;

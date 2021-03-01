@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { GoChevronRight } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import styles from './StartButton.module.scss';
 
@@ -14,14 +15,14 @@ const transitionItems = {
 };
 
 const StartButton = () => (
-  <Link to="/setup">
+  <Link to="/setup" style={{ textDecoration: 'inherit' }}>
     <motion.button
       className={styles.btn}
       aria-label="Start quiz setup"
       variants={item}
       transition={transitionItems}
     >
-      Get Started
+      Get Started <GoChevronRight className={styles.icon} />
     </motion.button>
   </Link>
 );

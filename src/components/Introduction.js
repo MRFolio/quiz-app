@@ -31,6 +31,11 @@ const Introduction = () => (
         transition={transitionItems2}
       />
     </motion.div>
+    <motion.div
+      className={styles.divider}
+      variants={item3}
+      transition={transitionItems}
+    ></motion.div>
     <motion.h1
       className={styles.heading}
       variants={item2}

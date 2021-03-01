@@ -1,17 +1,12 @@
 // main variables
 $mainBg: #116914;
-$containerBg: #dbe0e2;
-$accentColor: #1e5511;
-$titleBg: #116914;
-$paragraphBg: #052d2e;
-
-// border
-$border-highlight: #93f4ab;
-// text
-$white: rgb(250, 250, 250);
+$introTitleBg: #052d2e;
+$containerBg: #ffffff;
+$accentColor: #d0caeb;
+$text-white: rgb(250, 250, 250);
 
 // btn variables
-$btnText: rgb(246, 245, 245);
+$btnText: rgb(252, 252, 252);
 $btnBg: #116914;
 $btnBorder: 4px double #b7d5d4;
 $btnHoverBg: #178c1b;
@@ -20,6 +15,9 @@ $btnShadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
   rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
 // shadow variables
+$main-box-shadow: rgba($accentColor, 0.4) 5px 5px,
+  rgba($accentColor, 0.3) 10px 10px, rgba($accentColor, 0.2) 15px 15px,
+  rgba($accentColor, 0.1) 20px 20px, rgba($accentColor, 0.05) 25px 25px;
 $box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
   rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 $text-shadow: rgb(223, 187, 42) 1px 0 8px;
@@ -36,26 +34,34 @@ $small-mobile: 470px;
   }
 }
 
-@mixin buttonDefault {
+// placeholder selectors
+%buttonDefault {
   padding: 0.5em 1em;
   font-size: 1.2rem;
   font-weight: bold;
   color: $btnText;
-  letter-spacing: 0.06em;
-  background: $btnBg;
+  background: #00447a;
   border: $btnBorder;
   border-radius: 0.15em;
   box-shadow: $btnShadow;
   transition: $btnTransition;
+  letter-spacing: 0.04em;
   cursor: pointer;
 }
 
-@mixin active {
+%active {
   &:active {
     box-shadow: inset 0px 0px 5px #d8dddf;
   }
 }
 
+%containerBox {
+  border-radius: 0.25em;
+  border: 1px solid $accentColor;
+  box-shadow: $main-box-shadow;
+}
+
+// resets
 * {
   padding: 0;
   margin: 0;
@@ -72,10 +78,7 @@ body {
 }
 
 html {
-  background: #bed6cf;
-  // background: linear-gradient(180deg, #d6e0d7 0%, rgba(#052d2e, 0.386) 100%);
-  // background: linear-gradient(180deg, #bcc0bc 0%, rgba(#888686, 0.756) 100%);
-  background: linear-gradient(180deg, #bed6cf 0%, rgba(#073638, 0.406) 100%);
+  background: rgba(159, 170, 236, 0.15);
   background-repeat: no-repeat;
   background-size: cover;
   line-height: 1.5;

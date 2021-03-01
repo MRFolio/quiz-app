@@ -1,26 +1,34 @@
 @use "../styles/base" as b;
 
 .introduction {
+  @extend %containerBox;
   width: 48%;
   height: 54%;
+  min-height: 526px;
+  min-width: 526px;
   background: b.$containerBg;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 0.95em;
   padding: 0.25em;
-  border-radius: 0.25em;
-  box-shadow: b.$box-shadow;
   text-align: center;
+  position: relative;
+  border: 1px solid b.$accentColor;
+  z-index: 1;
 
   @include b.mediaQuery(b.$tablet) {
-    width: 70%;
+    width: 60%;
     height: 58%;
   }
+
   @include b.mediaQuery(b.$mobile) {
-    width: 94%;
-    height: 60%;
+    min-height: fit-content;
+    min-width: fit-content;
+    width: 100%;
+    height: 100vh;
+    padding: 0.75em;
   }
 }
 
@@ -30,43 +38,71 @@
   border-radius: 50%;
   margin-bottom: 1em;
 
+  @include b.mediaQuery(b.$mobile) {
+    width: 40%;
+    min-width: 226px;
+    max-height: 226px;
+    height: 26%;
+  }
+
+  @include b.mediaQuery(b.$small-mobile) {
+    width: 52%;
+    min-width: 226px;
+    height: 28%;
+  }
+
   .img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     border-radius: 50%;
     border: 6px double b.$containerBg;
-    background: rgba(246, 255, 254, 0.5);
     background: linear-gradient(0deg, b.$mainBg 0%, #5e6b6b 100%);
   }
 }
 
+.divider {
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  background: b.$mainBg;
+  border: 4px double b.$containerBg;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -400%;
+    left: -92%;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: b.$mainBg;
+    border: 4px double b.$containerBg;
+  }
+}
+
 .heading {
-  font-size: 1.54rem;
-  letter-spacing: 0.05em;
-  color: b.$white;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+  color: b.$text-white;
 
   @include b.mediaQuery(b.$tablet) {
-    font-size: 1.51rem;
+    font-size: 1.5rem;
   }
 
   @include b.mediaQuery(b.$small-mobile) {
-    background: b.$titleBg;
-    border-radius: 0.15em;
-    border: 1px solid b.$accentColor;
+    background: b.$introTitleBg;
+    border-radius: 0.25em;
+    border: 2px solid b.$introTitleBg;
   }
 
   .headingSpan {
-    background: b.$titleBg;
-    border-radius: 1em 0.15em;
-    padding: 0.25em 0.55em;
-    border: 4px double b.$containerBg;
+    background: b.$mainBg;
+    padding: 0.2em 0.7em;
+    border-radius: 1.25em;
     box-shadow: b.$btnShadow;
-
-    @include b.mediaQuery(b.$mobile) {
-      background: b.$titleBg;
-      padding: 0.25em 0.6em;
-    }
+    border: 4px double #50a345;
 
     @include b.mediaQuery(b.$small-mobile) {
       box-shadow: none;
@@ -77,20 +113,21 @@
 }
 
 .welcome {
-  padding: 0.2em 0.5em;
+  padding: 0.18em 0.5em;
   border-radius: 0.25em;
-  background: b.$paragraphBg;
-  font-size: 0.925rem;
-  text-align: center;
   border: 1px solid b.$accentColor;
-  color: rgb(235, 235, 235);
+  margin-top: 0.15em;
+  font-size: 0.87rem;
+  text-align: center;
+  color: rgb(26, 26, 26);
+  transition: color 0.25s ease-out;
 }
 
 a,
 a:visited {
-  color: #a3e6b0;
+  color: #0047cc;
 }
 
 a:hover {
-  color: rgb(153, 167, 235);
+  color: #015aff;
 }

@@ -1,6 +1,6 @@
 ## Quiz app built with React
 
-Users can generate their own custom quiz and play it. They can choose the number of questions, category and difficulty level. A result screen is shown at the end of the quiz with a chance to review the answers.
+Users can generate their own custom quiz and play it. They are able to choose the number of questions, category and difficulty level. A result screen is shown at the end of the quiz with a chance to review the answers.
 
 You can check out the LIVE project [**HERE**](https://quiz-app-mr.netlify.app/ 'Completed project').
 
@@ -8,7 +8,7 @@ You can check out the LIVE project [**HERE**](https://quiz-app-mr.netlify.app/ '
 
 ### Motivation
 
-Before I started the project I felt like I needed to solidify the fundamental skills in React and JavaScript in general to feel more comfortable with them. A quiz app seemed a good option do to that. It gave me the possibility to use **React Router** for the first time and I also wanted to add animations to my project. I found [Open Trivia Database API](https://opentdb.com/ 'Trivia  Database homepage') to supply my app with data.
+Before I started the project, I identified I had to improve my core knowledge in React and JavaScript to feel more comfortable with them. A quiz app seemed a good option to solidify the fundamental skills. It gave me the possibility to use React Router for the first time, and I also planned to add animations to my project. I found [Open Trivia Database API](https://opentdb.com/ 'Trivia  Database homepage') to supply my app with data.
 
 ---
 
@@ -24,7 +24,7 @@ Before I started the project I felt like I needed to solidify the fundamental sk
 
 ### Special gotchas of this project (problems I faced, unique elements):
 
-One particular challenging part was when I wanted to simultaneously fetch data and redirect the user to a new page after a button click. Initially, I only managed to make one of the two to successfully work. The solution was to use **React Router** useHistory hook and the push method. I had to add the state which included the fetched questions data as an additional parameter `history.push({ pathname: '/questions', state: { questions } });`.
+One particular challenging part was when I wished to simultaneously fetch data and redirect the user to a new page after a button click. Initially, I asked for help from a more experienced developer friend, and the solution was to use React Router useHistory hook and the push method. I had to add the state which included the fetched questions data as an additional parameter `history.push({ pathname: '/questions', state: { questions } });`.
 
 I had never worked with an animations library before, so getting accustomed to **Framer Motion** was also an interesting learning experience. The documentation is quite extensive and there are a lot of options to choose from. It was time consuming to find exactly what I needed. I learned that tweaking animations to just feel right can be a never ending task.
 
@@ -35,7 +35,7 @@ I had never worked with an animations library before, so getting accustomed to *
 Homepage:
 
 <p align="center">
-<img src="https://i.imgur.com/QxSe0L0.png" alt="Screencapture of the deployed Quiz App project. User can create a custom quiz and then play it." title="Screenshot of the homepage"/>
+<img src="https://i.imgur.com/1UyTLRk.png" alt="Screencapture of the deployed Quiz App project homepage. User can create a custom quiz and then play it." title="Screenshot of the homepage"/>
 </p>
 
 ---
@@ -43,7 +43,7 @@ Homepage:
 Quiz setup page:
 
 <p align="center">
-<img src="https://i.imgur.com/mgtunOj.png" alt="Screencapture of the deployed Quiz App project. User can create a custom quiz and then play it." title="Screenshot of the quiz setup page"/>
+<img src="https://i.imgur.com/mgtunOj.png" alt="Screencapture of the deployed Quiz App project setup page" title="Screenshot of the quiz setup page"/>
 </p>
 
 ---
@@ -51,7 +51,7 @@ Quiz setup page:
 Questions page:
 
 <p align="center">
-<img src="https://i.imgur.com/PtShSj2.png" alt="Screencapture of the deployed Quiz App project." title="Screenshot of the questions page"/>
+<img src="https://i.imgur.com/PtShSj2.png" alt="Screencapture of the deployed Quiz App project questions page" title="Screenshot of the questions page"/>
 </p>
 
 ---
@@ -59,7 +59,7 @@ Questions page:
 Result page:
 
 <p align="center">
-<img src="https://i.imgur.com/ltcKqtZ.png" alt="Screencapture of the deployed Quiz App project." title="Screenshot of the result page"/>
+<img src="https://i.imgur.com/X8aMKBB.png" alt="Screencapture of the deployed Quiz App project result page." title="Screenshot of the result page"/>
 </p>
 
 ---
@@ -67,5 +67,5 @@ Result page:
 Modal section:
 
 <p align="center">
-<img src="https://i.imgur.com/3bkUCrK.png" alt="Screencapture of the deployed Quiz App project." title="Screenshot of the modal page in result section"/>
+<img src="https://i.imgur.com/3bkUCrK.png" alt="Screencapture of the deployed Quiz App project modal component." title="Screenshot of the modal component in result section"/>
 </p>

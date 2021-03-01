@@ -1,8 +1,15 @@
 @use "../styles/base" as b;
 
 .btn {
-  margin-top: 0.5em;
-  @include b.buttonDefault;
+  @extend %buttonDefault;
+  @extend %active;
+  z-index: 100;
+  width: 250px;
+  margin-top: 0.36em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28em;
 
   &:hover {
     background: b.$btnHoverBg;
@@ -13,9 +20,11 @@
     outline: 1px solid lightblue;
   }
 
-  @include b.active;
-
   @include b.mediaQuery(b.$mobile) {
     padding: 0.5em 0.8em;
+  }
+
+  .icon {
+    font-size: 1.3rem;
   }
 }

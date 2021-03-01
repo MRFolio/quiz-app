@@ -1,20 +1,18 @@
 @use "../styles/base" as b;
 
 .container {
+  @extend %containerBox;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.9em;
   flex-direction: column;
   flex-wrap: wrap;
-  background: b.$containerBg;
-  border-radius: 0.25em;
-  border: 1px solid #859e90;
-  box-shadow: b.$box-shadow;
-  padding: 1em 2em;
+  padding: 1.15em 2em;
+  background: white;
 
   @include b.mediaQuery(b.$mobile) {
-    padding: 2.4em 0.5em;
+    padding: 2.4em 0.65em;
   }
 }
 
@@ -25,10 +23,10 @@
   color: #e4e4e4;
 
   .headingSpan {
-    background: b.$titleBg;
+    background: b.$mainBg;
     padding: 0.3em 0.5em;
-    border: 3px double b.$containerBg;
-    border-radius: 1em 0.15em;
+    border-radius: 0.25em;
+    padding: 0.25em 0.55em;
     box-shadow: b.$btnShadow;
   }
 }
@@ -47,7 +45,7 @@
   border-radius: 0.55em 0.55em 0 0;
 
   .resultHeading {
-    color: b.$white;
+    color: b.$text-white;
     letter-spacing: 0.05em;
     font-size: 1.5rem;
     font-weight: bold;
@@ -67,7 +65,7 @@
   }
 
   .resultInfo {
-    color: b.$white;
+    color: b.$text-white;
     text-shadow: b.$text-shadow;
     letter-spacing: 0.05em;
     font-size: 1.7rem;
@@ -78,10 +76,10 @@
 .textWrapper {
   width: 100%;
   border-radius: 0 0 0.55em 0.55em;
-  border: 1px solid b.$paragraphBg;
+  border: 1px solid b.$introTitleBg;
   margin-top: -0.9em;
   .separator {
-    border-bottom: 1px dotted b.$paragraphBg;
+    border-bottom: 1px dotted b.$introTitleBg;
     position: relative;
   }
 
@@ -93,13 +91,17 @@
 }
 
 .btn {
+  @extend %buttonDefault;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.25em;
-  @include b.buttonDefault;
   cursor: pointer;
+
+  &:first-of-type {
+    background: b.$introTitleBg;
+  }
 
   &:hover {
     background: b.$btnHoverBg;
@@ -109,11 +111,7 @@
     outline: 1px solid lightblue;
   }
 
-  @include b.active;
-
-  &:first-of-type {
-    background: b.$paragraphBg;
-  }
+  @extend %active;
 }
 
 .icon {
