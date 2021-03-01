@@ -17,7 +17,6 @@ Before I started the project, I identified I had to improve my core knowledge in
 - **ReactJS**
 - **React Router** for routing
 - **Framer Motion** for animations
-- **React Icons** for icons
 - **SASS** (SCSS modules)
 
 ---
@@ -35,7 +34,7 @@ I had never worked with an animations library before, so getting accustomed to *
 Homepage:
 
 <p align="center">
-<img src="https://i.imgur.com/1UyTLRk.png" alt="Screencapture of the deployed Quiz App project homepage. User can create a custom quiz and then play it." title="Screenshot of the homepage"/>
+<img src="https://i.imgur.com/jjgygcu.png" alt="Screencapture of the deployed Quiz App project intro section. User can create a custom quiz and then play it." title="Screenshot of the landing page intro"/>
 </p>
 
 ---
