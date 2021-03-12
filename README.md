@@ -1,6 +1,7 @@
 ## Quiz app built with React
 
-Users can generate their own custom quiz and play it. They are able to choose the number of questions, category and difficulty level. A result screen is shown at the end of the quiz with a chance to review the answers.
+Users can generate their own custom quiz and then play it. They are able to choose the number of questions, category and
+difficulty level.
 
 You can check out the LIVE project [**HERE**](https://quiz-app-mr.netlify.app/ 'Completed project').
 
@@ -8,7 +9,8 @@ You can check out the LIVE project [**HERE**](https://quiz-app-mr.netlify.app/ '
 
 ### Motivation
 
-Before I started the project, I identified I had to improve my core knowledge in React and JavaScript to feel more comfortable with them. A quiz app seemed a good option to solidify the fundamental skills. It gave me the possibility to use React Router for the first time, and I also planned to add animations to my project. I found [Open Trivia Database API](https://opentdb.com/ 'Trivia  Database homepage') to supply my app with data.
+I identified I had to improve my core knowledge in React and JavaScript to feel more comfortable with them. A quiz app seemed
+a good option to practice and solidify the fundamental skills. I found [Open Trivia Database API](https://opentdb.com/ 'Trivia  Database homepage') to supply my app with data.
 
 ---
 
@@ -21,11 +23,19 @@ Before I started the project, I identified I had to improve my core knowledge in
 
 ---
 
-### Special gotchas of this project (problems I faced, unique elements):
+### Challenges
 
-One particular challenging part was when I wished to simultaneously fetch data and redirect the user to a new page after a button click. Initially, I asked for help from a more experienced developer friend, and the solution was to use React Router useHistory hook and the push method. I had to add the state which included the fetched questions data as an additional parameter `history.push({ pathname: '/questions', state: { questions } });`.
+One particular tricky situation was when I wished to
+simultaneously fetch data and redirect the user to a new page
+after a button click. I only managed to make one of the two to successfully work. I
+asked for help from a more experienced friend, and the
+solution was to use React Router useHistory hook and the push
+method. I had to add the state, which included the fetched
+questions, as an additional parameter `history.push({ pathname: '/questions', state: { questions } });`.
 
-I had never worked with an animations library before, so getting accustomed to **Framer Motion** was also an interesting learning experience. The documentation is quite extensive and there are a lot of options to choose from. It was time consuming to find exactly what I needed. I learned that tweaking animations to just feel right can be a never ending task.
+I had never worked with an animations library before, so getting accustomed to **Framer Motion** was also an interesting learning
+experience. I got a bit overwhelmed with all the options
+available to me at first. I chose to just start small and not go super crazy with all the possibilites.
 
 ---
 
@@ -34,7 +44,7 @@ I had never worked with an animations library before, so getting accustomed to *
 Homepage:
 
 <p align="center">
-<img src="https://i.imgur.com/jjgygcu.png" alt="Screencapture of the deployed Quiz App project intro section. User can create a custom quiz and then play it." title="Screenshot of the landing page intro"/>
+<img src="https://i.imgur.com/gjWU4NN.png" alt="Screencapture of the deployed Quiz App project intro section. User can create a custom quiz and then play it." title="Screenshot of the landing page intro"/>
 </p>
 
 ---
